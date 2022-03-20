@@ -14,8 +14,9 @@
 <meta property="og:description" content="安装 git 工具从git官网下载windows下的软件，本文按照时的软件版本为 2.35.1。 安装软件时，使用默认设置一直点击 Next 按钮，一直到下图的页面勾选两个选项；然后点击 Install 安装 git 软件。  勾选“Enable experimental support for pseudo consoles”选项是为了在 git bash 中启动 Hexo 服务后，可以通过 C">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/Snipaste_2022-03-20_16-10-29.png">
+<meta property="og:image" content="http://example.com/Snipaste_2022-03-20_17-38-44.png">
 <meta property="article:published_time" content="2022-03-20T07:26:46.000Z">
-<meta property="article:modified_time" content="2022-03-20T08:48:35.137Z">
+<meta property="article:modified_time" content="2022-03-20T09:45:45.444Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/Snipaste_2022-03-20_16-10-29.png">
@@ -114,8 +115,19 @@
 <p>然后执行命令生成html文件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo g</span></span><br></pre></td></tr></table></figure>
 <p>最后使用命令运行 Hexo 服务器即可看到新内容</p>
-<p>npm install –save hexo-deployer-git</p>
-
+<h2 id="部署博客到Git-Pages"><a href="#部署博客到Git-Pages" class="headerlink" title="部署博客到Git Pages"></a>部署博客到Git Pages</h2><h3 id="创建博客仓库"><a href="#创建博客仓库" class="headerlink" title="创建博客仓库"></a>创建博客仓库</h3><p>在github页面中，创建新仓库，仓库名字为<code>xiaorangood.github.io</code>。</p>
+<h3 id="安装自动部署工具并设置"><a href="#安装自动部署工具并设置" class="headerlink" title="安装自动部署工具并设置"></a>安装自动部署工具并设置</h3><p>执行以下命令安装部署工具：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm install --save hexo-deployer-git</span></span><br></pre></td></tr></table></figure>
+<p>设置<code>_config.yml</code>文件内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:xiaorangood/xiaorangood.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h3 id="测试网络连接"><a href="#测试网络连接" class="headerlink" title="测试网络连接"></a>测试网络连接</h3><p>通过命令生成 ssh 密钥:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span></span><br></pre></td></tr></table></figure>
+<p>在获得密钥后，添加到github的个人设置页面中添加密钥：<br><img src="/Snipaste_2022-03-20_17-38-44.png"><br>添加密钥后，通过命令验证是否连接成功：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh -T git@github.com</span></span><br><span class="line">Hi xiaorangood! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+<p>如果出现超时的现象，通过命令设置 git 的代理：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy &#x27;socks5://127.0.0.1:10809&#x27;</span><br><span class="line">git config --global https.proxy &#x27;socks5://127.0.0.1:10809&#x27;</span><br></pre></td></tr></table></figure>
+<h3 id="部署个人博客网页"><a href="#部署个人博客网页" class="headerlink" title="部署个人博客网页"></a>部署个人博客网页</h3><p>在blog的目录下执行命令部署个人博客：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo clean</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo g</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo d</span></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
