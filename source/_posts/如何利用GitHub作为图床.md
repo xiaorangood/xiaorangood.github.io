@@ -17,11 +17,11 @@ git@github.com:xiaorangood/myImage.git
 ## 生成 token
 点击“头像”->"setting" -> "Developer settings" -> "Personal access tokens" -> "Generate New token"。
 
-![](https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-09.png)
+<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-09.png" style="zoom:70%"/>
 
 设置token的名字、有效期；并勾选“repo”，最后下拉到最下方，点击“Generate token”按钮。
 
-![](https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-30.png)
+<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-30.png" style="zoom:75%"/>
 
 
 ## 配置picgo
@@ -34,7 +34,7 @@ git@github.com:xiaorangood/myImage.git
 - 设定自定义域名：它的的作用是，在图片上传后，PicGo会按照`自定义域名+上传的图片名`的方式生成访问链接，放到粘贴板上，因为我们要使用jsDelivr加速访问，所以可以设置为`https://cdn.jsdelivr.net/gh/用户名/图床仓库名`。jsDelivr的参考格式:`https://cdn.jsdelivr.net/gh/xiaorangood/myImage`
 
 上述的内容填写完成后，点击“确认”按钮，再设置**GitHub图床为默认图床**。
-![](https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/20220320212009.png)
+<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/20220320212009.png" style="zoom:85%"/>
 
 ## 上传图片
 
