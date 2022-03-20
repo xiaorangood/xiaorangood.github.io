@@ -102,7 +102,7 @@ $ hexo d
 ```
 
 ## 使用source分支来保存博客源文件
-### 创建新分支
+### 在 github 上创建新分支
 上个章节中展示了使用 master 分支来保存生成的博客页面的方法，但原来的markdown文件并没有保存。为了保存 Markdown 文件，在仓库中创建`source`分支。
 
 ![](Snipaste_2022-03-20_17-58-33.png)
@@ -115,4 +115,36 @@ $ hexo d
 
 ![](Snipaste_2022-03-20_18-07-14.png)
 
-### 
+### 设置本地仓库
+在 blog 所在目录，执行仓库初始化，并设置远端仓库的地址。然后切换到目标分支。这里我的博客是在`D:/blog/`目录下。
+```shell
+$ git init
+Initialized empty Git repository in D:/blog/.git/
+$ git remote add origin git@github.com:xiaorangood/xiaorangood.github.io.git
+$ git checkout source --
+```
+因为我们只需要保留博客源码，其他无关的文件并不希望推送，需要确保配好了.gitignore文件，通常如下：
+```
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+_multiconfig.yml
+```
+
+### 提交源文件
+```shell
+$ git add .
+$ git commit -m 'Regular save'
+$ git push origin source
+```
+
+### 删除非源文件
+由于source分支是从master复制而来，所以有一些是deployment文件。这些部署的文件可以删除，也可以理会。
+删除文件夹后只剩下如下的文件夹。
+```shell
+node_modules/  scaffolds/  source/  themes/
+```
