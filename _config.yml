@@ -8,7 +8,7 @@ subtitle: ''
 description: ''
 keywords:
 author: 萧然
-language: zh-cn
+language: zh-CN
 timezone: ''
 
 # URL
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -113,14 +113,14 @@ jsonContent:
       title: true
       date: true
       path: true
-      text: false
-      raw: false
-      content: false
-      slug: false
-      updated: false
+      text: true
+      raw: true
+      content: true
+      slug: true
+      updated: true
       comments: false
       link: false
       permalink: false
-      excerpt: false
-      categories: false
+      excerpt: true
+      categories: true
       tags: true

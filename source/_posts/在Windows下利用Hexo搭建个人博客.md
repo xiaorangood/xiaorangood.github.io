@@ -13,7 +13,7 @@ tags:
 <img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_16-10-29.png" style="zoom:90%;" />
 
 勾选“Enable experimental support for pseudo consoles”选项是为了在 git bash 中启动 Hexo 服务后，可以通过 Ctrl + c 停止 Hexo 服务器的运行。
-<!--more-->
+
 ### 安装node.js
 Hexo是基于Node.js的，因此在安装Hexo前，需要安装该软件。
 
