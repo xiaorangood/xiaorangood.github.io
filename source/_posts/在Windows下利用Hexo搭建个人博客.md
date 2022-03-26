@@ -13,7 +13,7 @@ tags:
 <img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_16-10-29.png" style="zoom:90%;" />
 
 勾选“Enable experimental support for pseudo consoles”选项是为了在 git bash 中启动 Hexo 服务后，可以通过 Ctrl + c 停止 Hexo 服务器的运行。
-
+<!--more-->
 ### 安装node.js
 Hexo是基于Node.js的，因此在安装Hexo前，需要安装该软件。
 
@@ -91,8 +91,8 @@ Hi xiaorangood! You've successfully authenticated, but GitHub does not provide s
 ```
 如果出现超时的现象，通过命令设置 git 的代理：
 ```shell
-git config --global http.proxy 'socks5://127.0.0.1:10809'
-git config --global https.proxy 'socks5://127.0.0.1:10809'
+git config --global http.proxy 'http://127.0.0.1:10809'
+git config --global https.proxy 'http://127.0.0.1:10809'
 ```
 ### 部署个人博客网页
 在blog的目录下执行命令部署个人博客：
@@ -146,4 +146,17 @@ $ git add . && git commit -m 'Regular save' && git push origin source
 删除文件夹后只剩下如下的文件夹。
 ```shell
 node_modules/  scaffolds/  source/  themes/
+```
+
+## 新环境
+假设换电脑了，要在新环境继续在原有仓库基础上撸文章，此时通过git clone将博客源码拉到本地，然后安装、初始化hexo就能搞定：
+``` shell
+git clone git@github.com:xiaorangood/xiaorangood.github.io.git blog
+cd blog
+npm install hexo
+npm install hexo-deployer-git -save
+
+// hexo环境配置好后，继续像之前一样
+hexo new post_name
+...
 ```

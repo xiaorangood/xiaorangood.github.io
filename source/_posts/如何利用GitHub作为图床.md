@@ -14,6 +14,8 @@ https://github.com/xiaorangood/myImage.git
 git@github.com:xiaorangood/myImage.git
 ```
 
+<!--more-->
+
 ## 生成 token
 点击“头像”->"setting" -> "Developer settings" -> "Personal access tokens" -> "Generate New token"。
 
