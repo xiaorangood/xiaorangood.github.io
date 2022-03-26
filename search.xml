@@ -2,85 +2,10 @@
 <search>
   <entry>
     <title>数据结构系列笔记-复杂度分析</title>
-    <url>/2018/01/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/</url>
+    <url>/2021/12/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<h2 id="d"><a href="#d" class="headerlink" title="d"></a>d</h2>]]></content>
       <tags>
         <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo的Next主题配置</title>
-    <url>/2022/03/26/hexo%E7%9A%84Next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="选择仓库"><a href="#选择仓库" class="headerlink" title="选择仓库"></a>选择仓库</h2><p>在设置主题时候，无意间发现Next是有两个库，名字很相像，名字与地址分别是：</p>
-<ul>
-<li><a href="https://github.com/theme-next/hexo-theme-next">theme-next&#x2F;hexo-theme-next</a></li>
-<li><a href="https://github.com/next-theme/hexo-theme-next">next-theme&#x2F;hexo-theme-next</a></li>
-</ul>
-<p>next-theme的主题，是从v8.0.0开始，theme-next在写下这段文字时，版本为v7.8.0。</p>
-<p>由于默认情况下，实测V7版本在IOS浏览器中会出现主页空白的现象。这个现象需要将 motion 置 false 才可以消除。因此选择了V8以及以后的版本。</p>
-<span id="more"></span>
-
-<h2 id="fork主题并使用"><a href="#fork主题并使用" class="headerlink" title="fork主题并使用"></a>fork主题并使用</h2><p>由于在使用中会将主题进行修改，并希望保存配置，因此需要在gitHub页面将工程fork到自己的gitHub账户中。然后使用命令将仓库克隆到站点目录的 themes 目录下：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> git@github.com:xiaorangood/hexo-theme-next.git themes/next</span></span><br></pre></td></tr></table></figure>
-<p>然后需改站点目录的 _config.yml 中主题设置：</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: <span class="keyword">next</span></span><br><span class="line">#theme: landscape</span><br></pre></td></tr></table></figure>
-<p>使用 hexo 命令重新生成网站并启动服务器，通过各终端查看效果</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span></span><br></pre></td></tr></table></figure>
-<p>将Next主题，设置为站点source分支的子模块：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git submodule add git@github.com:xiaorangood/hexo-theme-next.git themes/next</span></span><br><span class="line">Cloning into &#x27;D:/blog/themes/next&#x27;...</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit -m <span class="string">&quot;添加Next主题为子模块&quot;</span> &amp;&amp; git push origin <span class="built_in">source</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="设置主题样式"><a href="#设置主题样式" class="headerlink" title="设置主题样式"></a>设置主题样式</h2><p>Next主题默认有4种样式，其中 Pisces 和 Gemini 暂时看不出区别，先选择了 Gemini 。打开主题的 _config.yml 文件，设置为：</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置页脚建站时间"><a href="#设置页脚建站时间" class="headerlink" title="设置页脚建站时间"></a>设置页脚建站时间</h2><p>Next主题在没有设置建站时间情况下，只会显示当前时间；在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 since，设置起始时间为2018年。</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">footer:</span><br><span class="line">  # Specify the year when the site was setup. If not defined, current year will <span class="keyword">be</span> used.</span><br><span class="line">  since: <span class="number">2018</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="设置TOC目录的样式"><a href="#设置TOC目录的样式" class="headerlink" title="设置TOC目录的样式"></a>设置TOC目录的样式</h2><p>在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 toc；设置TOC目录不自动编码且不折叠：</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">toc:</span><br><span class="line">  enable: true</span><br><span class="line">  # Automatically <span class="built_in">add</span> <span class="keyword">list</span> <span class="keyword">number</span> <span class="keyword">to</span> toc.</span><br><span class="line">  <span class="keyword">number</span>: false</span><br><span class="line">  # If true, <span class="keyword">all</span> level of TOC in <span class="keyword">a</span> post will <span class="keyword">be</span> displayed, rather than the activated part of it.</span><br><span class="line">  expand_all: true</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置站点主页和归档页面"><a href="#设置站点主页和归档页面" class="headerlink" title="设置站点主页和归档页面"></a>设置站点主页和归档页面</h2><p>在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 menu；将 home 和 archives 前的注释去除。</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">menu</span>:</span><br><span class="line">  home: / || fa fa-home</span><br><span class="line">  archives: /archives/ || fa fa-archive</span><br></pre></td></tr></table></figure>
-
-<h2 id="页面显示当前浏览进度"><a href="#页面显示当前浏览进度" class="headerlink" title="页面显示当前浏览进度"></a>页面显示当前浏览进度</h2><p>在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 scrollpercent；将false数值改为 true。</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">scrollpercent: true</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置代码块"><a href="#设置代码块" class="headerlink" title="设置代码块"></a>设置代码块</h2><p>在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 copy_button，将复制按钮使能；查看 theme 下的 light 字段，将 light 字段的 default 修改为 monokai。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">codeblock:</span><br><span class="line">  # Code Highlight theme</span><br><span class="line">  # All available themes: https://theme-next.js.org/highlight/</span><br><span class="line">  theme:</span><br><span class="line">    # light: default</span><br><span class="line">    # light: rainbow</span><br><span class="line">    light: monokai</span><br><span class="line">    # light: purebasic</span><br><span class="line">    dark: stackoverflow-dark</span><br><span class="line">  # Add copy button on codeblock</span><br><span class="line">  copy_button:</span><br><span class="line">    enable: true</span><br><span class="line">    # Available values: default | flat | mac</span><br><span class="line">    style</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>hexo</tag>
-        <tag>Next主题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何利用GitHub作为图床</title>
-    <url>/2022/03/20/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8GitHub%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h2 id="下载PicGo"><a href="#下载PicGo" class="headerlink" title="下载PicGo"></a>下载PicGo</h2><p>进入<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的下载地址</a>，根据系统选择版本。因为我的点好是 win11，因此选择的软件版本是<code> PicGo-Setup-2.3.0-x64.exe</code>。下载完成后，双击软件按照默认设置安装。</p>
-<h2 id="创建-GitHub-仓库"><a href="#创建-GitHub-仓库" class="headerlink" title="创建 GitHub 仓库"></a>创建 GitHub 仓库</h2><p>创建后，在我的GitHub页面中，就有一个 myImage 的仓库。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/xiaorangood/myImage.git</span><br><span class="line">git@github.com:xiaorangood/myImage.git</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-<h2 id="生成-token"><a href="#生成-token" class="headerlink" title="生成 token"></a>生成 token</h2><p>点击“头像”-&gt;”setting” -&gt; “Developer settings” -&gt; “Personal access tokens” -&gt; “Generate New token”。</p>
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-09.png" style="zoom:70%"/>
-
-<p>设置token的名字、有效期；并勾选“repo”，最后下拉到最下方，点击“Generate token”按钮。</p>
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-30.png" style="zoom:75%"/>
-
-
-<h2 id="配置picgo"><a href="#配置picgo" class="headerlink" title="配置picgo"></a>配置picgo</h2><p>打开picgo软件，在左边的栏目中点击“图床设置” -&gt; “GitHub图床”。按照下面的说明设置</p>
-<ul>
-<li>设定仓库名：按照<code>用户名/图床仓库名</code>的格式填写</li>
-<li>设定分支名：<code>master</code></li>
-<li>设定Token：粘贴之前生成的Token</li>
-<li>指定存储路径：填写想要储存的路径，如<code>images/</code>，这样就会在仓库下创建一个名为 images 的文件夹，图片将会储存在此文件夹中。</li>
-<li>设定自定义域名：它的的作用是，在图片上传后，PicGo会按照<code>自定义域名+上传的图片名</code>的方式生成访问链接，放到粘贴板上，因为我们要使用jsDelivr加速访问，所以可以设置为<code>https://cdn.jsdelivr.net/gh/用户名/图床仓库名</code>。jsDelivr的参考格式:<code>https://cdn.jsdelivr.net/gh/xiaorangood/myImage</code></li>
-</ul>
-<p>上述的内容填写完成后，点击“确认”按钮，再设置<strong>GitHub图床为默认图床</strong>。<br><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/20220320212009.png" style="zoom:85%"/></p>
-<h2 id="上传图片"><a href="#上传图片" class="headerlink" title="上传图片"></a>上传图片</h2><p>点击左侧栏目里的上传区后，将需要上传的图片拖入上传区即可。</p>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-        <tag>图床</tag>
-        <tag>Picgo</tag>
       </tags>
   </entry>
   <entry>
@@ -95,31 +20,31 @@
 <p>从 <a href="https://nodejs.org/zh-cn/">Node.js官网</a>下载软件，当前版本号是 17.7.2。</p>
 <p>下载软件后，按照默认设置安装即可。</p>
 <h3 id="安装-Hexo-软件"><a href="#安装-Hexo-软件" class="headerlink" title="安装 Hexo 软件"></a>安装 Hexo 软件</h3><p>执行以下几个命令安装</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将npm镜像修改为淘宝镜像</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npm.taobao.org&quot;</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用npm安装 Hexo</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm install -g hexo-cli</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在当前目录下初始化一个博客目录，并进入该目录</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo init blog</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> blog</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在博客目录使用命令启动Hexo服务器</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo s</span></span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
-<p>浏览器后，输入<code>http://localhost:4000/</code>即可打开博客网页。<br>如果希望在其他端口打开网页，可以使用 Hexo 命令指定端口。例如指定端口为5000。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo s -p 5000</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将npm镜像修改为淘宝镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npm.taobao.org&quot;</span></span><br><span class="line"><span class="comment"># 使用npm安装 Hexo</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment"># 在当前目录下初始化一个博客目录，并进入该目录</span></span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line"><span class="comment"># 在博客目录使用命令启动Hexo服务器</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>浏览器后，输入 <a href="http://localhost:4000/">http://localhost:4000/</a> 即可打开博客网页。<br>如果希望在其他端口打开网页，可以使用 Hexo 命令指定端口。例如指定端口为5000。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
 
-<h3 id="创建Hexo文件"><a href="#创建Hexo文件" class="headerlink" title="创建Hexo文件"></a>创建Hexo文件</h3><p>执行以下命令后，Hexo会在<code>source\_posts</code>目录下创建以文章名命名的markdown文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo n <span class="string">&quot;文章名&quot;</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="创建Hexo文件"><a href="#创建Hexo文件" class="headerlink" title="创建Hexo文件"></a>创建Hexo文件</h3><p>执行以下命令后，Hexo会在 source_posts 目录下创建以文章名命名的markdown文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo n <span class="string">&quot;文章名&quot;</span></span><br></pre></td></tr></table></figure>
 <p>然后执行命令生成html文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo g</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
 <p>最后使用命令运行 Hexo 服务器即可看到新内容</p>
-<h2 id="部署博客到Git-Pages"><a href="#部署博客到Git-Pages" class="headerlink" title="部署博客到Git Pages"></a>部署博客到Git Pages</h2><h3 id="创建博客仓库"><a href="#创建博客仓库" class="headerlink" title="创建博客仓库"></a>创建博客仓库</h3><p>在github页面中，创建新仓库，仓库名字为<code>xiaorangood.github.io</code>。</p>
+<h2 id="部署博客到Git-Pages"><a href="#部署博客到Git-Pages" class="headerlink" title="部署博客到Git Pages"></a>部署博客到Git Pages</h2><h3 id="创建博客仓库"><a href="#创建博客仓库" class="headerlink" title="创建博客仓库"></a>创建博客仓库</h3><p>在github页面中，创建新仓库，仓库名字为 <strong>xiaorangood.github.io</strong> 。</p>
 <h3 id="安装自动部署工具并设置"><a href="#安装自动部署工具并设置" class="headerlink" title="安装自动部署工具并设置"></a>安装自动部署工具并设置</h3><p>执行以下命令安装部署工具：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">npm install --save hexo-deployer-git</span></span><br></pre></td></tr></table></figure>
-<p>设置<code>_config.yml</code>文件内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/one-command-deployment</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:xiaorangood/xiaorangood.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<p>设置站点的_config.yml 配置文件内容：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:xiaorangood/xiaorangood.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 <h3 id="测试网络连接"><a href="#测试网络连接" class="headerlink" title="测试网络连接"></a>测试网络连接</h3><p>通过命令生成 ssh 密钥:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen</span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
 <p>在获得密钥后，添加到github的个人设置页面中添加密钥：</p>
 <img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-38-44.png" style="zoom:75%;" />
 
 <p>添加密钥后，通过命令验证是否连接成功：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh -T git@github.com</span></span><br><span class="line">Hi xiaorangood! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line">Hi xiaorangood! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
 <p>如果出现超时的现象，通过命令设置 git 的代理：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy &#x27;http://127.0.0.1:10809&#x27;</span><br><span class="line">git config --global https.proxy &#x27;http://127.0.0.1:10809&#x27;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">&#x27;http://127.0.0.1:10809&#x27;</span></span><br><span class="line">git config --global https.proxy <span class="string">&#x27;http://127.0.0.1:10809&#x27;</span></span><br></pre></td></tr></table></figure>
 <h3 id="部署个人博客网页"><a href="#部署个人博客网页" class="headerlink" title="部署个人博客网页"></a>部署个人博客网页</h3><p>在blog的目录下执行命令部署个人博客：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo clean</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo g</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo d</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
 
 <h2 id="使用source分支来保存博客源文件"><a href="#使用source分支来保存博客源文件" class="headerlink" title="使用source分支来保存博客源文件"></a>使用source分支来保存博客源文件</h2><h3 id="在-github-上创建新分支"><a href="#在-github-上创建新分支" class="headerlink" title="在 github 上创建新分支"></a>在 github 上创建新分支</h3><p>上个章节中展示了使用 master 分支来保存生成的博客页面的方法，但原来的markdown文件并没有保存。为了保存 Markdown 文件，在仓库中创建<code>source</code>分支。</p>
 <img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-58-33.png" style="zoom:75%"/>
@@ -131,24 +56,100 @@
 <img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-07-14.png" style="zoom:75%"/>
 
 <h3 id="设置本地仓库"><a href="#设置本地仓库" class="headerlink" title="设置本地仓库"></a>设置本地仓库</h3><p>在 blog 所在目录，执行仓库初始化，并设置远端仓库的地址。然后切换到目标分支。这里我的博客是在<code>D:/blog/</code>目录下。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git init</span></span><br><span class="line">Initialized empty Git repository in D:/blog/.git/</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git remote add origin git@github.com:xiaorangood/xiaorangood.github.io.git</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git checkout <span class="built_in">source</span> --</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin git@github.com:xiaorangood/xiaorangood.github.io.git</span><br><span class="line">git checkout <span class="built_in">source</span> --</span><br></pre></td></tr></table></figure>
 <p>因为我们只需要保留博客源码，其他无关的文件并不希望推送，需要确保配好了.gitignore文件，通常如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br><span class="line">_multiconfig.yml</span><br></pre></td></tr></table></figure>
 
-<h3 id="提交源文件"><a href="#提交源文件" class="headerlink" title="提交源文件"></a>提交源文件</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git add . &amp;&amp;</span>  </span><br></pre></td></tr></table></figure>
+<h3 id="提交源文件"><a href="#提交源文件" class="headerlink" title="提交源文件"></a>提交源文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add . &amp;&amp;  git commit -m <span class="string">&quot;Regular save&quot;</span> &amp;&amp; git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="删除非源文件"><a href="#删除非源文件" class="headerlink" title="删除非源文件"></a>删除非源文件</h3><p>由于source分支是从master复制而来，所以有一些是deployment文件。这些部署的文件可以删除，也可以理会。<br>删除文件夹后只剩下如下的文件夹。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">node_modules/  scaffolds/  source/  themes/</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node_modules/  scaffolds/  <span class="built_in">source</span>/  themes/</span><br></pre></td></tr></table></figure>
 
 <h2 id="新环境"><a href="#新环境" class="headerlink" title="新环境"></a>新环境</h2><p>假设换电脑了，要在新环境继续在原有仓库基础上撸文章，此时通过git clone将博客源码拉到本地，然后安装、初始化hexo就能搞定：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:xiaorangood/xiaorangood.github.io.git blog</span><br><span class="line">cd blog</span><br><span class="line">npm install hexo</span><br><span class="line">npm install hexo-deployer-git -save</span><br><span class="line"></span><br><span class="line">// hexo环境配置好后，继续像之前一样</span><br><span class="line">hexo new post_name</span><br><span class="line">...</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:xiaorangood/xiaorangood.github.io.git blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install hexo</span><br><span class="line">npm install hexo-deployer-git -save</span><br><span class="line"></span><br><span class="line">// hexo环境配置好后，继续像之前一样</span><br><span class="line">hexo new post_name</span><br><span class="line">...</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
+        <tag>静态博客</tag>
         <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
+    <title>hexo的Next主题配置</title>
+    <url>/2022/03/26/hexo%E7%9A%84Next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="选择仓库"><a href="#选择仓库" class="headerlink" title="选择仓库"></a>选择仓库</h2><p>在设置主题时候，无意间发现Next是有两个库，名字很相像，名字与地址分别是：</p>
+<ul>
+<li><a href="https://github.com/theme-next/hexo-theme-next">theme-next&#x2F;hexo-theme-next</a></li>
+<li><a href="https://github.com/next-theme/hexo-theme-next">next-theme&#x2F;hexo-theme-next</a></li>
+</ul>
+<p>next-theme的主题，是从v8.0.0开始，theme-next在写下这段文字时，版本为v7.8.0。由于默认情况下，实测V7版本在IOS浏览器中会出现主页空白的现象。这个现象需要将 motion 置 false 才可以消除。因此选择了V8以及以后的版本。</p>
+<span id="more"></span>
+
+<h2 id="fork主题并使用"><a href="#fork主题并使用" class="headerlink" title="fork主题并使用"></a>fork主题并使用</h2><p>由于在使用中会将主题进行修改，并希望保存配置，因此需要在gitHub页面将工程fork到自己的gitHub账户中。然后使用命令将Next主题仓库设置为站点source分支的子模块，放在 themes 目录下,：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git submodule add git@github.com:xiaorangood/hexo-theme-next.git themes/next</span><br><span class="line">git commit -m <span class="string">&quot;添加Next主题为子模块&quot;</span> &amp;&amp; git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
+<p>然后需改站点的 _config.yml 中主题设置：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br><span class="line"><span class="comment">#theme: landscape</span></span><br></pre></td></tr></table></figure>
+<p>使用 hexo 命令重新生成网站并启动服务器，通过各终端查看效果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="设置主题样式"><a href="#设置主题样式" class="headerlink" title="设置主题样式"></a>设置主题样式</h2><p>Next主题默认有4种样式，其中 Pisces 和 Gemini 暂时看不出区别，先选择了 Gemini 。打开主题的 _config.yml 文件，设置为：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Gemini</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="设置页脚建站时间"><a href="#设置页脚建站时间" class="headerlink" title="设置页脚建站时间"></a>设置页脚建站时间</h2><p>Next主题在没有设置建站时间情况下，只会显示当前时间；在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 since，设置起始时间为2018年。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">footer:</span></span><br><span class="line">  <span class="comment"># Specify the year when the site was setup. If not defined, current year will be used.</span></span><br><span class="line">  <span class="attr">since:</span> <span class="number">2018</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="设置TOC目录的样式"><a href="#设置TOC目录的样式" class="headerlink" title="设置TOC目录的样式"></a>设置TOC目录的样式</h2><p>在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 toc；设置TOC目录不自动编码且不折叠：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Automatically add list number to toc.</span></span><br><span class="line">  <span class="attr">number:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span></span><br><span class="line">  <span class="attr">expand_all:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="设置站点主页和归档页面"><a href="#设置站点主页和归档页面" class="headerlink" title="设置站点主页和归档页面"></a>设置站点主页和归档页面</h2><p>在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 menu；将 home 和 archives 前的注释去除。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="页面显示当前浏览进度"><a href="#页面显示当前浏览进度" class="headerlink" title="页面显示当前浏览进度"></a>页面显示当前浏览进度</h2><p>在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 scrollpercent；将false数值改为 true。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">scrollpercent:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="设置代码块"><a href="#设置代码块" class="headerlink" title="设置代码块"></a>设置代码块</h2><p>在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 copy_button，将复制按钮使能；查看 theme 下的 light 字段，将 light 字段的 default 修改为 monokai。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">codeblock:</span></span><br><span class="line">  <span class="comment"># Code Highlight theme</span></span><br><span class="line">  <span class="comment"># All available themes: https://theme-next.js.org/highlight/</span></span><br><span class="line">  <span class="attr">theme:</span></span><br><span class="line">    <span class="comment"># light: default</span></span><br><span class="line">    <span class="comment"># light: rainbow</span></span><br><span class="line">    <span class="attr">light:</span> <span class="string">monokai</span></span><br><span class="line">    <span class="comment"># light: purebasic</span></span><br><span class="line">    <span class="attr">dark:</span> <span class="string">stackoverflow-dark</span></span><br><span class="line">  <span class="comment"># Add copy button on codeblock</span></span><br><span class="line">  <span class="attr">copy_button:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Available values: default | flat | mac</span></span><br><span class="line">    <span class="string">style</span></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>静态博客</tag>
+        <tag>hexo</tag>
+        <tag>Next主题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何利用GitHub作为图床</title>
+    <url>/2022/03/20/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8GitHub%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h2 id="下载PicGo"><a href="#下载PicGo" class="headerlink" title="下载PicGo"></a>下载PicGo</h2><p>进入<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的下载地址</a>，根据系统选择版本。因为我的点好是 win11，因此选择的软件版本是 PicGo-Setup-2.3.0-x64.exe。下载完成后，双击软件按照默认设置安装。</p>
+<h2 id="创建-GitHub-仓库"><a href="#创建-GitHub-仓库" class="headerlink" title="创建 GitHub 仓库"></a>创建 GitHub 仓库</h2><p>创建后，在我的GitHub页面中，就有一个 myImage 的仓库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/xiaorangood/myImage.git</span><br><span class="line">git@github.com:xiaorangood/myImage.git</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+<h2 id="生成-token"><a href="#生成-token" class="headerlink" title="生成 token"></a>生成 token</h2><p>点击“头像”-&gt;”setting” -&gt; “Developer settings” -&gt; “Personal access tokens” -&gt; “Generate New token”。</p>
+<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-09.png" style="zoom:70%"/>
+
+<p>设置token的名字、有效期；并勾选“repo”，最后下拉到最下方，点击“Generate token”按钮。</p>
+<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-30.png" style="zoom:75%"/>
+
+
+<h2 id="配置picgo"><a href="#配置picgo" class="headerlink" title="配置picgo"></a>配置picgo</h2><p>打开picgo软件，在左边的栏目中点击“图床设置” -&gt; “GitHub图床”。按照下面的说明设置</p>
+<ul>
+<li>设定仓库名：按照“用户名&#x2F;图床仓库名”的格式填写</li>
+<li>设定分支名：“master”</li>
+<li>设定Token：粘贴之前生成的Token</li>
+<li>指定存储路径：填写想要储存的路径，如“images&#x2F;”，这样就会在仓库下创建一个名为 images 的文件夹，图片将会储存在此文件夹中。</li>
+<li>设定自定义域名：它的的作用是，在图片上传后，PicGo会按照<code>自定义域名+上传的图片名</code>的方式生成访问链接，放到粘贴板上，因为我们要使用jsDelivr加速访问，所以可以设置为 <a href="https://cdn.jsdelivr.net/gh/%E7%94%A8%E6%88%B7%E5%90%8D/%E5%9B%BE%E5%BA%8A%E4%BB%93%E5%BA%93%E5%90%8D%E3%80%82jsDelivr%E7%9A%84%E5%8F%82%E8%80%83%E6%A0%BC%E5%BC%8F%EF%BC%9Ahttps://cdn.jsdelivr.net/gh/xiaorangood/myImage%E3%80%82">https://cdn.jsdelivr.net/gh/用户名/图床仓库名。jsDelivr的参考格式：https://cdn.jsdelivr.net/gh/xiaorangood/myImage。</a></li>
+</ul>
+<p>上述的内容填写完成后，点击“确认”按钮，再设置<strong>GitHub图床为默认图床</strong>。<br><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/20220320212009.png" style="zoom:85%"/></p>
+<h2 id="上传图片"><a href="#上传图片" class="headerlink" title="上传图片"></a>上传图片</h2><p>点击左侧栏目里的上传区后，将需要上传的图片拖入上传区即可。</p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>图床</tag>
+        <tag>Picgo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构系列笔记-概述</title>
-    <url>/2018/01/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-%E6%A6%82%E8%BF%B0/</url>
+    <url>/2021/11/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-%E6%A6%82%E8%BF%B0/</url>
     <content><![CDATA[<h2 id="1-程序的本质"><a href="#1-程序的本质" class="headerlink" title="1 程序的本质"></a>1 程序的本质</h2><p>程序等于算法加数据结构。</p>
 <h2 id="2-基本数据结构"><a href="#2-基本数据结构" class="headerlink" title="2 基本数据结构"></a>2 基本数据结构</h2><ol>
 <li>线性结构:（1）线性表、（2）栈和队列、（3） 串、（4）数组和广义表</li>
