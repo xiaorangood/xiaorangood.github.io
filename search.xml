@@ -1,6 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>数据结构系列笔记-复杂度分析</title>
+    <url>/2018/01/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h2 id="d"><a href="#d" class="headerlink" title="d"></a>d</h2>]]></content>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo的Next主题配置</title>
+    <url>/2022/03/26/hexo%E7%9A%84Next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="选择仓库"><a href="#选择仓库" class="headerlink" title="选择仓库"></a>选择仓库</h2><p>在设置主题时候，无意间发现Next是有两个库，名字很相像，名字与地址分别是：</p>
+<ul>
+<li><a href="https://github.com/theme-next/hexo-theme-next">theme-next&#x2F;hexo-theme-next</a></li>
+<li><a href="https://github.com/next-theme/hexo-theme-next">next-theme&#x2F;hexo-theme-next</a></li>
+</ul>
+<p>next-theme的主题，是从v8.0.0开始，theme-next在写下这段文字时，版本为v7.8.0。</p>
+<p>由于默认情况下，实测V7版本在IOS浏览器中会出现主页空白的现象。这个现象需要将 motion 置 false 才可以消除。因此选择了V8以及以后的版本。</p>
+<span id="more"></span>
+
+<h2 id="fork主题并使用"><a href="#fork主题并使用" class="headerlink" title="fork主题并使用"></a>fork主题并使用</h2><p>由于在使用中会将主题进行修改，并希望保存配置，因此需要在gitHub页面将工程fork到自己的gitHub账户中。然后使用命令将仓库克隆到站点目录的 themes 目录下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git <span class="built_in">clone</span> git@github.com:xiaorangood/hexo-theme-next.git themes/next</span></span><br></pre></td></tr></table></figure>
+<p>然后需改站点目录的 _config.yml 中主题设置：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: <span class="keyword">next</span></span><br><span class="line">#theme: landscape</span><br></pre></td></tr></table></figure>
+<p>使用 hexo 命令重新生成网站并启动服务器，通过各终端查看效果</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</span></span><br></pre></td></tr></table></figure>
+<p>将Next主题，设置为站点source分支的子模块：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git submodule add git@github.com:xiaorangood/hexo-theme-next.git themes/next</span></span><br><span class="line">Cloning into &#x27;D:/blog/themes/next&#x27;...</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git commit -m <span class="string">&quot;添加Next主题为子模块&quot;</span> &amp;&amp; git push origin <span class="built_in">source</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="设置主题样式"><a href="#设置主题样式" class="headerlink" title="设置主题样式"></a>设置主题样式</h2><p>Next主题默认有4种样式，其中 Pisces 和 Gemini 暂时看不出区别，先选择了 Gemini 。打开主题的 _config.yml 文件，设置为：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">#scheme: Mist</span><br><span class="line">#scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置页脚建站时间"><a href="#设置页脚建站时间" class="headerlink" title="设置页脚建站时间"></a>设置页脚建站时间</h2><p>Next主题在没有设置建站时间情况下，只会显示当前时间；在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 since，设置起始时间为2018年。</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">footer:</span><br><span class="line">  # Specify the year when the site was setup. If not defined, current year will <span class="keyword">be</span> used.</span><br><span class="line">  since: <span class="number">2018</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="设置TOC目录的样式"><a href="#设置TOC目录的样式" class="headerlink" title="设置TOC目录的样式"></a>设置TOC目录的样式</h2><p>在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 toc；设置TOC目录不自动编码且不折叠：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">toc:</span><br><span class="line">  enable: true</span><br><span class="line">  # Automatically <span class="built_in">add</span> <span class="keyword">list</span> <span class="keyword">number</span> <span class="keyword">to</span> toc.</span><br><span class="line">  <span class="keyword">number</span>: false</span><br><span class="line">  # If true, <span class="keyword">all</span> level of TOC in <span class="keyword">a</span> post will <span class="keyword">be</span> displayed, rather than the activated part of it.</span><br><span class="line">  expand_all: true</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置站点主页和归档页面"><a href="#设置站点主页和归档页面" class="headerlink" title="设置站点主页和归档页面"></a>设置站点主页和归档页面</h2><p>在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 menu；将 home 和 archives 前的注释去除。</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">menu</span>:</span><br><span class="line">  home: / || fa fa-home</span><br><span class="line">  archives: /archives/ || fa fa-archive</span><br></pre></td></tr></table></figure>
+
+<h2 id="页面显示当前浏览进度"><a href="#页面显示当前浏览进度" class="headerlink" title="页面显示当前浏览进度"></a>页面显示当前浏览进度</h2><p>在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 scrollpercent；将false数值改为 true。</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">scrollpercent: true</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置代码块"><a href="#设置代码块" class="headerlink" title="设置代码块"></a>设置代码块</h2><p>在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 copy_button，将复制按钮使能；查看 theme 下的 light 字段，将 light 字段的 default 修改为 monokai。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">codeblock:</span><br><span class="line">  # Code Highlight theme</span><br><span class="line">  # All available themes: https://theme-next.js.org/highlight/</span><br><span class="line">  theme:</span><br><span class="line">    # light: default</span><br><span class="line">    # light: rainbow</span><br><span class="line">    light: monokai</span><br><span class="line">    # light: purebasic</span><br><span class="line">    dark: stackoverflow-dark</span><br><span class="line">  # Add copy button on codeblock</span><br><span class="line">  copy_button:</span><br><span class="line">    enable: true</span><br><span class="line">    # Available values: default | flat | mac</span><br><span class="line">    style</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>Next主题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何利用GitHub作为图床</title>
+    <url>/2022/03/20/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8GitHub%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h2 id="下载PicGo"><a href="#下载PicGo" class="headerlink" title="下载PicGo"></a>下载PicGo</h2><p>进入<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的下载地址</a>，根据系统选择版本。因为我的点好是 win11，因此选择的软件版本是<code> PicGo-Setup-2.3.0-x64.exe</code>。下载完成后，双击软件按照默认设置安装。</p>
+<h2 id="创建-GitHub-仓库"><a href="#创建-GitHub-仓库" class="headerlink" title="创建 GitHub 仓库"></a>创建 GitHub 仓库</h2><p>创建后，在我的GitHub页面中，就有一个 myImage 的仓库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/xiaorangood/myImage.git</span><br><span class="line">git@github.com:xiaorangood/myImage.git</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+<h2 id="生成-token"><a href="#生成-token" class="headerlink" title="生成 token"></a>生成 token</h2><p>点击“头像”-&gt;”setting” -&gt; “Developer settings” -&gt; “Personal access tokens” -&gt; “Generate New token”。</p>
+<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-09.png" style="zoom:70%"/>
+
+<p>设置token的名字、有效期；并勾选“repo”，最后下拉到最下方，点击“Generate token”按钮。</p>
+<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-30.png" style="zoom:75%"/>
+
+
+<h2 id="配置picgo"><a href="#配置picgo" class="headerlink" title="配置picgo"></a>配置picgo</h2><p>打开picgo软件，在左边的栏目中点击“图床设置” -&gt; “GitHub图床”。按照下面的说明设置</p>
+<ul>
+<li>设定仓库名：按照<code>用户名/图床仓库名</code>的格式填写</li>
+<li>设定分支名：<code>master</code></li>
+<li>设定Token：粘贴之前生成的Token</li>
+<li>指定存储路径：填写想要储存的路径，如<code>images/</code>，这样就会在仓库下创建一个名为 images 的文件夹，图片将会储存在此文件夹中。</li>
+<li>设定自定义域名：它的的作用是，在图片上传后，PicGo会按照<code>自定义域名+上传的图片名</code>的方式生成访问链接，放到粘贴板上，因为我们要使用jsDelivr加速访问，所以可以设置为<code>https://cdn.jsdelivr.net/gh/用户名/图床仓库名</code>。jsDelivr的参考格式:<code>https://cdn.jsdelivr.net/gh/xiaorangood/myImage</code></li>
+</ul>
+<p>上述的内容填写完成后，点击“确认”按钮，再设置<strong>GitHub图床为默认图床</strong>。<br><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/20220320212009.png" style="zoom:85%"/></p>
+<h2 id="上传图片"><a href="#上传图片" class="headerlink" title="上传图片"></a>上传图片</h2><p>点击左侧栏目里的上传区后，将需要上传的图片拖入上传区即可。</p>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>图床</tag>
+        <tag>Picgo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在Windows下利用Hexo搭建个人博客</title>
     <url>/2022/03/20/%E5%9C%A8Windows%E4%B8%8B%E5%88%A9%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h2 id="本地创建个人博客"><a href="#本地创建个人博客" class="headerlink" title="本地创建个人博客"></a>本地创建个人博客</h2><h3 id="安装-git-工具"><a href="#安装-git-工具" class="headerlink" title="安装 git 工具"></a>安装 git 工具</h3><p>从<a href="https://git-scm.com/downloads">git官网</a>下载windows下的软件，本文按照时的软件版本为 2.35.1。</p>
@@ -52,47 +135,15 @@
 <p>因为我们只需要保留博客源码，其他无关的文件并不希望推送，需要确保配好了.gitignore文件，通常如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br><span class="line">_multiconfig.yml</span><br></pre></td></tr></table></figure>
 
-<h3 id="提交源文件"><a href="#提交源文件" class="headerlink" title="提交源文件"></a>提交源文件</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git add . &amp;&amp; git commit -m <span class="string">&#x27;Regular save&#x27;</span> &amp;&amp; git push origin <span class="built_in">source</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="提交源文件"><a href="#提交源文件" class="headerlink" title="提交源文件"></a>提交源文件</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">git add . &amp;&amp;</span>  </span><br></pre></td></tr></table></figure>
 
 <h3 id="删除非源文件"><a href="#删除非源文件" class="headerlink" title="删除非源文件"></a>删除非源文件</h3><p>由于source分支是从master复制而来，所以有一些是deployment文件。这些部署的文件可以删除，也可以理会。<br>删除文件夹后只剩下如下的文件夹。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">node_modules/  scaffolds/  source/  themes/</span><br></pre></td></tr></table></figure>
 
 <h2 id="新环境"><a href="#新环境" class="headerlink" title="新环境"></a>新环境</h2><p>假设换电脑了，要在新环境继续在原有仓库基础上撸文章，此时通过git clone将博客源码拉到本地，然后安装、初始化hexo就能搞定：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:xiaorangood/xiaorangood.github.io.git blog</span><br><span class="line">cd blog</span><br><span class="line">npm install hexo</span><br><span class="line">npm install hexo-deployer-git -save</span><br><span class="line"></span><br><span class="line">// hexo环境配置好后，继续像之前一样</span><br><span class="line">hexo new post_name</span><br><span class="line">...</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title>如何利用GitHub作为图床</title>
-    <url>/2022/03/20/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8GitHub%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h2 id="下载PicGo"><a href="#下载PicGo" class="headerlink" title="下载PicGo"></a>下载PicGo</h2><p>进入<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的下载地址</a>，根据系统选择版本。因为我的点好是 win11，因此选择的软件版本是<code> PicGo-Setup-2.3.0-x64.exe</code>。下载完成后，双击软件按照默认设置安装。</p>
-<h2 id="创建-GitHub-仓库"><a href="#创建-GitHub-仓库" class="headerlink" title="创建 GitHub 仓库"></a>创建 GitHub 仓库</h2><p>创建后，在我的GitHub页面中，就有一个 myImage 的仓库。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/xiaorangood/myImage.git</span><br><span class="line">git@github.com:xiaorangood/myImage.git</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-<h2 id="生成-token"><a href="#生成-token" class="headerlink" title="生成 token"></a>生成 token</h2><p>点击“头像”-&gt;”setting” -&gt; “Developer settings” -&gt; “Personal access tokens” -&gt; “Generate New token”。</p>
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-09.png" style="zoom:70%"/>
-
-<p>设置token的名字、有效期；并勾选“repo”，最后下拉到最下方，点击“Generate token”按钮。</p>
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-30.png" style="zoom:75%"/>
-
-
-<h2 id="配置picgo"><a href="#配置picgo" class="headerlink" title="配置picgo"></a>配置picgo</h2><p>打开picgo软件，在左边的栏目中点击“图床设置” -&gt; “GitHub图床”。按照下面的说明设置</p>
-<ul>
-<li>设定仓库名：按照<code>用户名/图床仓库名</code>的格式填写</li>
-<li>设定分支名：<code>master</code></li>
-<li>设定Token：粘贴之前生成的Token</li>
-<li>指定存储路径：填写想要储存的路径，如<code>images/</code>，这样就会在仓库下创建一个名为 images 的文件夹，图片将会储存在此文件夹中。</li>
-<li>设定自定义域名：它的的作用是，在图片上传后，PicGo会按照<code>自定义域名+上传的图片名</code>的方式生成访问链接，放到粘贴板上，因为我们要使用jsDelivr加速访问，所以可以设置为<code>https://cdn.jsdelivr.net/gh/用户名/图床仓库名</code>。jsDelivr的参考格式:<code>https://cdn.jsdelivr.net/gh/xiaorangood/myImage</code></li>
-</ul>
-<p>上述的内容填写完成后，点击“确认”按钮，再设置<strong>GitHub图床为默认图床</strong>。<br><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/20220320212009.png" style="zoom:85%"/></p>
-<h2 id="上传图片"><a href="#上传图片" class="headerlink" title="上传图片"></a>上传图片</h2><p>点击左侧栏目里的上传区后，将需要上传的图片拖入上传区即可。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>数据结构系列笔记-复杂度分析</title>
-    <url>/2018/01/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<h2 id="d"><a href="#d" class="headerlink" title="d"></a>d</h2>]]></content>
       <tags>
-        <tag>数据结构</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
