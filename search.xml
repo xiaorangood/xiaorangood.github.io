@@ -1,70 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>在Windows下利用Hexo搭建个人博客</title>
-    <url>/2022/03/20/%E5%9C%A8Windows%E4%B8%8B%E5%88%A9%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h2 id="本地创建个人博客"><a href="#本地创建个人博客" class="headerlink" title="本地创建个人博客"></a>本地创建个人博客</h2><h3 id="安装-git-工具"><a href="#安装-git-工具" class="headerlink" title="安装 git 工具"></a>安装 git 工具</h3><p>从<a href="https://git-scm.com/downloads">git官网</a>下载windows下的软件，本文按照时的软件版本为 2.35.1。</p>
-<p>安装软件时，使用默认设置一直点击 Next 按钮，一直到下图的页面勾选两个选项；然后点击 Install 安装 git 软件。<br><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_16-10-29.png" style="zoom:90%;" /></p>
-<p>勾选“Enable experimental support for pseudo consoles”选项是为了在 git bash 中启动 Hexo 服务后，可以通过 Ctrl + c 停止 Hexo 服务器的运行。</p>
-<span id="more"></span>
-
-<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>Hexo是基于Node.js的，因此在安装Hexo前，需要安装该软件。</p>
-<p>从 <a href="https://nodejs.org/zh-cn/">Node.js官网</a>下载软件，当前版本号是 17.7.2。</p>
-<p>下载软件后，按照默认设置安装即可。</p>
-<h3 id="安装-Hexo-软件"><a href="#安装-Hexo-软件" class="headerlink" title="安装 Hexo 软件"></a>安装 Hexo 软件</h3><p>执行以下几个命令安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将npm镜像修改为淘宝镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npm.taobao.org&quot;</span></span><br><span class="line"><span class="comment"># 使用npm安装 Hexo</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment"># 在当前目录下初始化一个博客目录，并进入该目录</span></span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line"><span class="comment"># 在博客目录使用命令启动Hexo服务器</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>浏览器后，输入 <a href="http://localhost:4000/">http://localhost:4000/</a> 即可打开博客网页。<br>如果希望在其他端口打开网页，可以使用 Hexo 命令指定端口。例如指定端口为5000。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建Hexo文件"><a href="#创建Hexo文件" class="headerlink" title="创建Hexo文件"></a>创建Hexo文件</h3><p>执行以下命令后，Hexo会在 source_posts 目录下创建以文章名命名的markdown文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo n <span class="string">&quot;文章名&quot;</span></span><br></pre></td></tr></table></figure>
-<p>然后执行命令生成html文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
-<p>最后使用命令运行 Hexo 服务器即可看到新内容</p>
-<h2 id="部署博客到Git-Pages"><a href="#部署博客到Git-Pages" class="headerlink" title="部署博客到Git Pages"></a>部署博客到Git Pages</h2><h3 id="创建博客仓库"><a href="#创建博客仓库" class="headerlink" title="创建博客仓库"></a>创建博客仓库</h3><p>在github页面中，创建新仓库，仓库名字为 <strong>xiaorangood.github.io</strong> 。</p>
-<h3 id="安装自动部署工具并设置"><a href="#安装自动部署工具并设置" class="headerlink" title="安装自动部署工具并设置"></a>安装自动部署工具并设置</h3><p>执行以下命令安装部署工具：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
-<p>设置站点的_config.yml 配置文件内容：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:xiaorangood/xiaorangood.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-<h3 id="测试网络连接"><a href="#测试网络连接" class="headerlink" title="测试网络连接"></a>测试网络连接</h3><p>通过命令生成 ssh 密钥:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen</span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p>在获得密钥后，添加到github的个人设置页面中添加密钥：</p>
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-38-44.png" style="zoom:75%;" />
-
-<p>添加密钥后，通过命令验证是否连接成功：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line">Hi xiaorangood! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
-<p>如果出现超时的现象，通过命令设置 git 的代理：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">&#x27;http://127.0.0.1:10809&#x27;</span></span><br><span class="line">git config --global https.proxy <span class="string">&#x27;http://127.0.0.1:10809&#x27;</span></span><br></pre></td></tr></table></figure>
-<h3 id="部署个人博客网页"><a href="#部署个人博客网页" class="headerlink" title="部署个人博客网页"></a>部署个人博客网页</h3><p>在blog的目录下执行命令部署个人博客：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用source分支来保存博客源文件"><a href="#使用source分支来保存博客源文件" class="headerlink" title="使用source分支来保存博客源文件"></a>使用source分支来保存博客源文件</h2><h3 id="在-github-上创建新分支"><a href="#在-github-上创建新分支" class="headerlink" title="在 github 上创建新分支"></a>在 github 上创建新分支</h3><p>上个章节中展示了使用 master 分支来保存生成的博客页面的方法，但原来的markdown文件并没有保存。为了保存 Markdown 文件，在仓库中创建<code>source</code>分支。</p>
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-58-33.png" style="zoom:75%"/>
-
-<p>将source分支修改为默认分支：</p>
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-06-26.png" style="zoom:75%"/>
-
-<p>检查仓库的默认分支：</p>
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-07-14.png" style="zoom:75%"/>
-
-<h3 id="设置本地仓库"><a href="#设置本地仓库" class="headerlink" title="设置本地仓库"></a>设置本地仓库</h3><p>在 blog 所在目录，执行仓库初始化，并设置远端仓库的地址。然后切换到目标分支。这里我的博客是在<code>D:/blog/</code>目录下。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin git@github.com:xiaorangood/xiaorangood.github.io.git</span><br><span class="line">git checkout <span class="built_in">source</span> --</span><br></pre></td></tr></table></figure>
-<p>因为我们只需要保留博客源码，其他无关的文件并不希望推送，需要确保配好了.gitignore文件，通常如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br><span class="line">_multiconfig.yml</span><br></pre></td></tr></table></figure>
-
-<h3 id="提交源文件"><a href="#提交源文件" class="headerlink" title="提交源文件"></a>提交源文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add . &amp;&amp;  git commit -m <span class="string">&quot;Regular save&quot;</span> &amp;&amp; git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="删除非源文件"><a href="#删除非源文件" class="headerlink" title="删除非源文件"></a>删除非源文件</h3><p>由于source分支是从master复制而来，所以有一些是deployment文件。这些部署的文件可以删除，也可以理会。<br>删除文件夹后只剩下如下的文件夹。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node_modules/  scaffolds/  <span class="built_in">source</span>/  themes/</span><br></pre></td></tr></table></figure>
-
-<h2 id="新环境"><a href="#新环境" class="headerlink" title="新环境"></a>新环境</h2><p>假设换电脑了，要在新环境继续在原有仓库基础上撸文章，此时通过git clone将博客源码拉到本地，然后安装、初始化hexo就能搞定：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:xiaorangood/xiaorangood.github.io.git blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install hexo</span><br><span class="line">npm install hexo-deployer-git -save</span><br><span class="line"></span><br><span class="line">// hexo环境配置好后，继续像之前一样</span><br><span class="line">hexo new post_name</span><br><span class="line">...</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>静态博客</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何利用GitHub作为图床</title>
     <url>/2022/03/20/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8GitHub%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A/</url>
     <content><![CDATA[<h2 id="下载PicGo"><a href="#下载PicGo" class="headerlink" title="下载PicGo"></a>下载PicGo</h2><p>进入<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的下载地址</a>，根据系统选择版本。因为我的点好是 win11，因此选择的软件版本是 PicGo-Setup-2.3.0-x64.exe。下载完成后，双击软件按照默认设置安装。</p>
@@ -134,17 +70,73 @@
 <h2 id="设置代码块"><a href="#设置代码块" class="headerlink" title="设置代码块"></a>设置代码块</h2><p>在 themes&#x2F;next&#x2F;_config.yml 文件中搜索 copy_button，将复制按钮使能；查看 theme 下的 light 字段，将 light 字段的 default 修改为 monokai。</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">codeblock:</span></span><br><span class="line">  <span class="comment"># Code Highlight theme</span></span><br><span class="line">  <span class="comment"># All available themes: https://theme-next.js.org/highlight/</span></span><br><span class="line">  <span class="attr">theme:</span></span><br><span class="line">    <span class="comment"># light: default</span></span><br><span class="line">    <span class="comment"># light: rainbow</span></span><br><span class="line">    <span class="attr">light:</span> <span class="string">monokai</span></span><br><span class="line">    <span class="comment"># light: purebasic</span></span><br><span class="line">    <span class="attr">dark:</span> <span class="string">stackoverflow-dark</span></span><br><span class="line">  <span class="comment"># Add copy button on codeblock</span></span><br><span class="line">  <span class="attr">copy_button:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Available values: default | flat | mac</span></span><br><span class="line">    <span class="string">style</span></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>静态博客</tag>
         <tag>hexo</tag>
+        <tag>静态博客</tag>
         <tag>Next主题</tag>
       </tags>
   </entry>
   <entry>
-    <title>数据结构系列笔记-复杂度分析</title>
-    <url>/2021/12/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<h2 id="d"><a href="#d" class="headerlink" title="d"></a>d</h2>]]></content>
+    <title>在Windows下利用Hexo搭建个人博客</title>
+    <url>/2022/03/20/%E5%9C%A8Windows%E4%B8%8B%E5%88%A9%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h2 id="本地创建个人博客"><a href="#本地创建个人博客" class="headerlink" title="本地创建个人博客"></a>本地创建个人博客</h2><h3 id="安装-git-工具"><a href="#安装-git-工具" class="headerlink" title="安装 git 工具"></a>安装 git 工具</h3><p>从<a href="https://git-scm.com/downloads">git官网</a>下载windows下的软件，本文按照时的软件版本为 2.35.1。</p>
+<p>安装软件时，使用默认设置一直点击 Next 按钮，一直到下图的页面勾选两个选项；然后点击 Install 安装 git 软件。<br><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_16-10-29.png" style="zoom:90%;" /></p>
+<p>勾选“Enable experimental support for pseudo consoles”选项是为了在 git bash 中启动 Hexo 服务后，可以通过 Ctrl + c 停止 Hexo 服务器的运行。</p>
+<span id="more"></span>
+
+<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>Hexo是基于Node.js的，因此在安装Hexo前，需要安装该软件。</p>
+<p>从 <a href="https://nodejs.org/zh-cn/">Node.js官网</a>下载软件，当前版本号是 17.7.2。</p>
+<p>下载软件后，按照默认设置安装即可。</p>
+<h3 id="安装-Hexo-软件"><a href="#安装-Hexo-软件" class="headerlink" title="安装 Hexo 软件"></a>安装 Hexo 软件</h3><p>执行以下几个命令安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将npm镜像修改为淘宝镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npm.taobao.org&quot;</span></span><br><span class="line"><span class="comment"># 使用npm安装 Hexo</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment"># 在当前目录下初始化一个博客目录，并进入该目录</span></span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line"><span class="comment"># 在博客目录使用命令启动Hexo服务器</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>浏览器后，输入 <a href="http://localhost:4000/">http://localhost:4000/</a> 即可打开博客网页。<br>如果希望在其他端口打开网页，可以使用 Hexo 命令指定端口。例如指定端口为5000。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建Hexo文件"><a href="#创建Hexo文件" class="headerlink" title="创建Hexo文件"></a>创建Hexo文件</h3><p>执行以下命令后，Hexo会在 source_posts 目录下创建以文章名命名的markdown文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo n <span class="string">&quot;文章名&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后执行命令生成html文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+<p>最后使用命令运行 Hexo 服务器即可看到新内容</p>
+<h2 id="部署博客到Git-Pages"><a href="#部署博客到Git-Pages" class="headerlink" title="部署博客到Git Pages"></a>部署博客到Git Pages</h2><h3 id="创建博客仓库"><a href="#创建博客仓库" class="headerlink" title="创建博客仓库"></a>创建博客仓库</h3><p>在github页面中，创建新仓库，仓库名字为 <strong>xiaorangood.github.io</strong> 。</p>
+<h3 id="安装自动部署工具并设置"><a href="#安装自动部署工具并设置" class="headerlink" title="安装自动部署工具并设置"></a>安装自动部署工具并设置</h3><p>执行以下命令安装部署工具：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<p>设置站点的_config.yml 配置文件内容：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:xiaorangood/xiaorangood.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<h3 id="测试网络连接"><a href="#测试网络连接" class="headerlink" title="测试网络连接"></a>测试网络连接</h3><p>通过命令生成 ssh 密钥:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen</span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>在获得密钥后，添加到github的个人设置页面中添加密钥：</p>
+<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-38-44.png" style="zoom:75%;" />
+
+<p>添加密钥后，通过命令验证是否连接成功：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line">Hi xiaorangood! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
+<p>如果出现超时的现象，通过命令设置 git 的代理：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">&#x27;http://127.0.0.1:10809&#x27;</span></span><br><span class="line">git config --global https.proxy <span class="string">&#x27;http://127.0.0.1:10809&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="部署个人博客网页"><a href="#部署个人博客网页" class="headerlink" title="部署个人博客网页"></a>部署个人博客网页</h3><p>在blog的目录下执行命令部署个人博客：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用source分支来保存博客源文件"><a href="#使用source分支来保存博客源文件" class="headerlink" title="使用source分支来保存博客源文件"></a>使用source分支来保存博客源文件</h2><h3 id="在-github-上创建新分支"><a href="#在-github-上创建新分支" class="headerlink" title="在 github 上创建新分支"></a>在 github 上创建新分支</h3><p>上个章节中展示了使用 master 分支来保存生成的博客页面的方法，但原来的markdown文件并没有保存。为了保存 Markdown 文件，在仓库中创建<code>source</code>分支。</p>
+<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-58-33.png" style="zoom:75%"/>
+
+<p>将source分支修改为默认分支：</p>
+<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-06-26.png" style="zoom:75%"/>
+
+<p>检查仓库的默认分支：</p>
+<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-07-14.png" style="zoom:75%"/>
+
+<h3 id="设置本地仓库"><a href="#设置本地仓库" class="headerlink" title="设置本地仓库"></a>设置本地仓库</h3><p>在 blog 所在目录，执行仓库初始化，并设置远端仓库的地址。然后切换到目标分支。这里我的博客是在<code>D:/blog/</code>目录下。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin git@github.com:xiaorangood/xiaorangood.github.io.git</span><br><span class="line">git checkout <span class="built_in">source</span> --</span><br></pre></td></tr></table></figure>
+<p>因为我们只需要保留博客源码，其他无关的文件并不希望推送，需要确保配好了.gitignore文件，通常如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br><span class="line">_multiconfig.yml</span><br></pre></td></tr></table></figure>
+
+<h3 id="提交源文件"><a href="#提交源文件" class="headerlink" title="提交源文件"></a>提交源文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add . &amp;&amp;  git commit -m <span class="string">&quot;Regular save&quot;</span> &amp;&amp; git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="删除非源文件"><a href="#删除非源文件" class="headerlink" title="删除非源文件"></a>删除非源文件</h3><p>由于source分支是从master复制而来，所以有一些是deployment文件。这些部署的文件可以删除，也可以理会。<br>删除文件夹后只剩下如下的文件夹。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node_modules/  scaffolds/  <span class="built_in">source</span>/  themes/</span><br></pre></td></tr></table></figure>
+
+<h2 id="新环境"><a href="#新环境" class="headerlink" title="新环境"></a>新环境</h2><p>假设换电脑了，要在新环境继续在原有仓库基础上撸文章，此时通过git clone将博客源码拉到本地，然后安装、初始化hexo就能搞定：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:xiaorangood/xiaorangood.github.io.git blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install hexo</span><br><span class="line">npm install hexo-deployer-git -save</span><br><span class="line"></span><br><span class="line">// hexo环境配置好后，继续像之前一样</span><br><span class="line">hexo new post_name</span><br><span class="line">...</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>数据结构</tag>
+        <tag>hexo</tag>
+        <tag>静态博客</tag>
       </tags>
   </entry>
   <entry>
@@ -252,6 +244,113 @@
 <p>数据类型（Data Type）是一组性质相同的值的集合以及定义于这个值集合上的一组操作的总称。数据类型&#x3D;值的集合+值集合上的一组操作。</p>
 <p>抽象数据类型（Abstract Data Type，ADT）是指一个数学模型以及定义在此数据模型上的一组操作。由用户定义，从问题抽象出数据模型（逻辑结构），还包括定义在数据模型上的一组抽象运算（相关操作），不考虑计算机内的具体存储结构与运损的具体实现算法。</p>
 <p>抽象数据类型的形式定义：抽象数据类型可用（D，S，P）三元组表示，其中D是数据对象，S是D上的关系集，P是对D的基本操作集。</p>
+]]></content>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构系列笔记-算法与复杂度分析</title>
+    <url>/2021/12/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-%E7%AE%97%E6%B3%95%E4%B8%8E%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h2 id="数据结构与算法的研究内容"><a href="#数据结构与算法的研究内容" class="headerlink" title="数据结构与算法的研究内容"></a>数据结构与算法的研究内容</h2><ol>
+<li>逻辑结构：研究对象的特征及其相互之间的关系。</li>
+<li>存储结构：研究有效组织计算机存储。</li>
+<li>算法：有效地实现对象之间的“运算”关系。</li>
+</ol>
+<h2 id="算法的定义"><a href="#算法的定义" class="headerlink" title="算法的定义"></a>算法的定义</h2><p>算法是对特定问题求解方法和步骤的一种描述，它是指令的有限序列。其中每个指令表示一个或多个操作。</p>
+<span id="more"></span>
+
+<h2 id="算法的描述"><a href="#算法的描述" class="headerlink" title="算法的描述"></a>算法的描述</h2><ol>
+<li>自然语言：英语、中文。</li>
+<li>流程图：传统流程图、NS流程图。</li>
+<li>伪代码（类语言）：类C语言。</li>
+<li>程序代码：C语言程序、JAVA语言程序。</li>
+</ol>
+<h2 id="算法与程序的关系"><a href="#算法与程序的关系" class="headerlink" title="算法与程序的关系"></a>算法与程序的关系</h2><p>算法是解决问题的一种方法或一个过程，考虑如何将输入转换成输出，一个问题可以有多种算法。程序是用某种程序设计语言对算法的具体实现。程序&#x3D;数据结构+算法；数据结构通过算法实现操作；算法根据数据结构设计程序。</p>
+<h2 id="算法特性"><a href="#算法特性" class="headerlink" title="算法特性"></a>算法特性</h2><p>一个算法必须具备以下五个重要特征：</p>
+<ol>
+<li>有穷性：一个算法必须总是在执行有穷步骤之后结束，且每一步都在有穷时间内完成。</li>
+<li>确定性：算法中的每一条指令必须有确切的含义，没有二义性，在任何条件下，只有唯一的一条直线路径，即对于相同的输入只能得到相同的输出。</li>
+<li>可行性：算法是可以执行的，算法描述的操作可以通过已经实现的基本操作执行有限次来实现。</li>
+<li>一个算法有零个或多个输入。</li>
+<li>一个算法有一个或多个输出。</li>
+</ol>
+<h2 id="算法设计的要求"><a href="#算法设计的要求" class="headerlink" title="算法设计的要求"></a>算法设计的要求</h2><p>具有四个要求：</p>
+<ol>
+<li>正确性（Correctness）</li>
+<li>可读性（Readability）</li>
+<li>健壮性（Robustness）</li>
+<li>高效性（Efficiency）</li>
+</ol>
+<h3 id="正确性"><a href="#正确性" class="headerlink" title="正确性"></a>正确性</h3><p>正确性是满足问题要求，能正确解决问题。<br>算法转换为程序后要注意：</p>
+<ol>
+<li>程序中不含语法错误；</li>
+<li>程序对于几组输入数据能够得出满足要求的结果；</li>
+<li>程序对于精心选择的、典型的、苛刻且带有刁难性的几组输入数据能够得出满足要求的结果；</li>
+<li>程序对于一切合法的输入数据都能得出满足要求的结果。</li>
+</ol>
+<p>通常以第三层意义上的正确性作为衡量一个算法是否合格的标准。</p>
+<h3 id="可读性"><a href="#可读性" class="headerlink" title="可读性"></a>可读性</h3><p>可读性具有2层含义：</p>
+<ol>
+<li>算法主要是为了人阅读和交流，其次才是为计算机执行，因此算法应该易于人的理解；</li>
+<li>另一方面，晦涩难读的算法易于隐藏较多错误而难以调试。</li>
+</ol>
+<h3 id="健壮性"><a href="#健壮性" class="headerlink" title="健壮性"></a>健壮性</h3><p>健壮性是指当输入非法数据时，算法恰当的做出反应或进行相应处理，而不是产生莫名奇妙的输出结果。处理出错的方法，不应是中断程序的执行，而应该是返回一个表示错误或错误性质的值，以便在更高的抽象层次上进行处理。</p>
+<h3 id="高效性"><a href="#高效性" class="headerlink" title="高效性"></a>高效性</h3><p>高效性要求尽量少的时间和尽量低的存储需求。</p>
+<h2 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h2><p>算法分析用来评价同一个问题的多个算法。算法分析的目的是看算法实际是否可行，并在同一问题存在多个算法时可进行性能上的比较，以便从中挑选除比较优的算法。</p>
+<p>一个好算法首先具备正确性，然后健壮性、可读性；在这几个方面多满足的情况下，主要考虑算法的效率，通过算法的效率高低来评判不同算法的优劣程度。算法效率包括：</p>
+<ol>
+<li>时间效率：指算法所消耗的时间；</li>
+<li>空间效率：指算法执行过程中所消耗的存储空间。</li>
+</ol>
+<p><strong>时间效率和空间效率有时候时矛盾的。</strong></p>
+<h2 id="算法的时间效率"><a href="#算法的时间效率" class="headerlink" title="算法的时间效率"></a>算法的时间效率</h2><p>算法时间效率可以用依据该算法编制的程序在计算机上所消耗的时间来度量。有两种<strong>度量</strong>方法：</p>
+<ol>
+<li>事后统计：将算法实现，测孙其时间和空间开销；缺点是编写程序实现算法将或非较多的时间和精力，所得实验结果依赖于计算机的软硬件等环境因素，掩盖算法本身的优劣。</li>
+<li>事前分析：对算法所消耗资源的一种估计算法。</li>
+</ol>
+<h3 id="事前分析法"><a href="#事前分析法" class="headerlink" title="事前分析法"></a>事前分析法</h3><ul>
+<li>一个算法的运行时间是一个算法在计算机上运行所耗费的时间，大致可以等于计算机执行一种简单的操作（如赋值、比较、移动等）所需的<strong>时间</strong>与算法中进行的简单操作<strong>次数乘积</strong>。<ul>
+<li>算法运行时间 &#x3D; 一个简单操作所需要的时间×简单操作次数。</li>
+</ul>
+</li>
+<li>即算法中每条语句的执行时间之和。<ul>
+<li>算法运行时间 &#x3D; Σ(每条语句执行次数)×该语句执行一次所需要的时间。</li>
+<li>每条语句的执行次数又称为语句的频度。</li>
+<li>算法运行时间 &#x3D; Σ(每条语句频度)×该语句执行一次所需要的时间。</li>
+</ul>
+</li>
+<li>每条语句执行一次所需的时间，一般都是随机器而异的。每条语句执行一次所需的时间，一般都是随机器而异的。取决于机器的指令性能、速度以及编译的代码质量，是由机器本身软硬件环境决定的，它与算法无关。</li>
+<li>我们可<strong>以假设执行每条语句所需的时间均为单位时间</strong>，此时对算法运行时间的讨论就可以转化为讨论该算法中所有语句的执行次数，即<strong>频度之和</strong>了。</li>
+<li>这就可以独立于不同机器的软硬件环境来分析算法的时间性能了。</li>
+</ul>
+<p>算法运行时间的例子：两个n×n矩阵相乘算法</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;=n; i++)                            <span class="comment">// n+1次，n次循环，1次判断</span></span><br><span class="line">   <span class="keyword">for</span> (j=<span class="number">1</span>; j&lt;=n; j++) &#123;                       <span class="comment">// n*(n+1)次，外层循环n次，内层n+1次</span></span><br><span class="line">      c[i][j] = <span class="number">0</span>;                              <span class="comment">// n*n次，2层循环</span></span><br><span class="line">      <span class="keyword">for</span> (k=<span class="number">0</span>; k&lt;n; k++)                       <span class="comment">// n*n*(n+1)次，外面2层循环，内层n+1次</span></span><br><span class="line">      c[i][j] = c[i][j] + a[i][k] * b[k][j];    <span class="comment">// n*n*n次，三层循环</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们把算法所耗费的时间定义为该算法中<strong>每条语句的频度之和</strong>，则该算法的时间消耗T(n)为：T(n) &#x3D; 2×n3 + 3×n2 + 2×n + 1。</p>
+<h3 id="数量级"><a href="#数量级" class="headerlink" title="数量级"></a>数量级</h3><p>为了便于不同算法的时间效率，我们仅比较它们的数量级。例如，$T_1(n) &#x3D; 10 \times n^2$ 与 $T_2(n)&#x3D;5 \times n$这两个比较。若有某个辅助函数f(n)使得当n趋近于无穷大时，$T(n)&#x2F;f(n)$的极限值为不等于零的常数，则称$f(n)$是$T(n)$的同数量级函数。记作$T(n)&#x3D;O(f(n))$，称$O(f(n))$为算法的渐进时间复杂度（O是数量级的符号），简称时间复杂度。</p>
+<p>例如，公式$T(n) &#x3D; 2 \times n^3 + 3 \times n^2 + 2 \times n + 1$中，当$n\rightarrow \infin$时，$T(n)&#x2F;n^2 \rightarrow 2$，这表示$n$充分大时，$T(n)$与$n^3$是同阶或同数量级，引入大“O”记号，则$T(n)$可记作：$T(n)&#x3D;O(n^3)$</p>
+<h3 id="算法时间复杂度"><a href="#算法时间复杂度" class="headerlink" title="算法时间复杂度"></a>算法时间复杂度</h3><ul>
+<li>定义：算法中基本语句重复执行的次数是问题规模$n$的某个函数$f(n)$，算法的时间量度记作：$T(n)&#x3D;O(n)$。它表示随着n的增大，算法执行的时间的增长率和$f(n)$的增长率相同，称为渐进时间复杂度。数据符号“O”定义为若$T(n)$和$f(n)$是定义在正整数集合上的两个函数，则$T(n)&#x3D;O(f(n))$表示存在正的常数$C$和$n_0$，使得当$n≥n_0$时都满足$0≤T(n)≤C*f(n)$。</li>
+<li>基本语句是指算法中重复执行次数和算法的执行时间成正比的语句；对算法运行时间的贡献最大的语句；执行次数最多语句。</li>
+<li>问题规模$n$越大，算法的执行时间越长。对于排序来说，$n$为记录数；对于矩阵来说，$n$为矩阵的阶数；对于多项式来说，$n$为多项式的项数；对于集合来说，$n$为元素个数；对于树来说，$n$为树的结点个数；对于图来说，$n$为图的顶点数或边数。</li>
+</ul>
+<h3 id="分析算法时间复杂度的基本方法"><a href="#分析算法时间复杂度的基本方法" class="headerlink" title="分析算法时间复杂度的基本方法"></a>分析算法时间复杂度的基本方法</h3><ul>
+<li>一般方法：<ul>
+<li>找出语句频度最大的那条语句作为基本语句;</li>
+<li>计算基本语句的频度得到问题规模n的某个函数f(n)；</li>
+<li>取其数量级用符号“O”表示。</li>
+</ul>
+</li>
+<li>技巧:<ul>
+<li>忽略所有低次幂项和高次幂系数，体现增长率的含义；</li>
+<li>时间复杂度是由嵌套最深语句的频度决定的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="时间复杂度分析例题"><a href="#时间复杂度分析例题" class="headerlink" title="时间复杂度分析例题"></a>时间复杂度分析例题</h3><p>计算下方语句的时间复杂度。</p>
+<h4 id="例子1"><a href="#例子1" class="headerlink" title="例子1"></a>例子1</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    <span class="keyword">for</span> (j=<span class="number">1</span>; j&lt;=i; j++)</span><br><span class="line">        <span class="keyword">for</span> (k=<span class="number">1</span>; j&lt;=j; j++)</span><br><span class="line">            x = x + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>$$<br>语句的频度&#x3D; \sum_{i&#x3D;1}^n\sum_{j&#x3D;1}^n\sum_{z&#x3D;1}^n &#x3D; \sum_{i&#x3D;1}^n\sum_{j&#x3D;1}^nj &#x3D; \sum_{i&#x3D;1}^n \frac{i(i+1)}{2}&#x3D;\frac{1}{2} \left( \sum_{i&#x3D;1}^ni^2+ \sum_{i&#x3D;1}^ni\right) \<br>&#x3D;frac{1}{2} \left( \frac{n(n+1)(n+2)}{6} + \frac{n(n+1)}{2}\right) &#x3D; \frac{n(n+1)(n+2)}{6}\</p>
+<p>$$</p>
 ]]></content>
       <tags>
         <tag>数据结构</tag>
