@@ -10,37 +10,46 @@ tags:
 ## 选择仓库
 
 在设置主题时候，无意间发现Next是有两个库，名字很相像，名字与地址分别是：
+
 - [theme-next/hexo-theme-next](https://github.com/theme-next/hexo-theme-next)
 - [next-theme/hexo-theme-next](https://github.com/next-theme/hexo-theme-next)
 
 next-theme的主题，是从v8.0.0开始，theme-next在写下这段文字时，版本为v7.8.0。由于默认情况下，实测V7版本在IOS浏览器中会出现主页空白的现象。这个现象需要将 motion 置 false 才可以消除。因此选择了V8以及以后的版本。
 
+主题配置可以参考[主题配置 - NexT 使用文档](https://theme-next.iissnan.com/theme-settings.html)。
+
 <!-- more -->
 
 ## fork主题并使用
+
 由于在使用中会将主题进行修改，并希望保存配置，因此需要在gitHub页面将工程fork到自己的gitHub账户中。然后使用命令将Next主题仓库设置为站点source分支的子模块，放在 themes 目录下,：
+
 ```bash
 git submodule add git@github.com:xiaorangood/hexo-theme-next.git themes/next
 git commit -m "添加Next主题为子模块" && git push origin source
 ```
+
 然后需改站点的 _config.yml 中主题设置：
-``` yaml
+
+```yaml
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
 #theme: landscape
 ```
+
 使用 hexo 命令重新生成网站并启动服务器，通过各终端查看效果
-``` bash
+
+```bash
 hexo clean && hexo g && hexo s
 ```
 
-
-
 ## 设置主题样式
+
 Next主题默认有4种样式，其中 Pisces 和 Gemini 暂时看不出区别，先选择了 Gemini 。打开主题的 _config.yml 文件，设置为：
-``` yaml
+
+```yaml
 # Schemes
 #scheme: Muse
 #scheme: Mist
@@ -49,16 +58,20 @@ scheme: Gemini
 ```
 
 ## 设置页脚建站时间
+
 Next主题在没有设置建站时间情况下，只会显示当前时间；在 themes/next/_config.yml 文件中搜索 since，设置起始时间为2018年。
-``` yaml
+
+```yaml
 footer:
   # Specify the year when the site was setup. If not defined, current year will be used.
   since: 2018
 ```
 
 ## 设置TOC目录的样式
+
 在 themes/next/_config.yml 文件中搜索 toc；设置TOC目录不自动编码且不折叠：
-``` yaml 
+
+```yaml
 toc:
   enable: true
   # Automatically add list number to toc.
@@ -68,21 +81,27 @@ toc:
 ```
 
 ## 设置站点主页和归档页面
+
 在 themes/next/_config.yml 文件中搜索 menu；将 home 和 archives 前的注释去除。
-``` yaml
+
+```yaml
 menu:
   home: / || fa fa-home
   archives: /archives/ || fa fa-archive
 ```
 
 ## 页面显示当前浏览进度
+
 在 themes/next/_config.yml 文件中搜索 scrollpercent；将false数值改为 true。
-``` yaml
+
+```yaml
 scrollpercent: true
 ```
 
 ## 设置代码块
-在 themes/next/_config.yml 文件中搜索 copy_button，将复制按钮使能；查看 theme 下的 light 字段，将 light 字段的 default 修改为 monokai。
+
+在 主题配置（themes/next/_config.yml ）文件中搜索 copy_button，将复制按钮使能；查看 theme 下的 light 字段，将 light 字段的 default 修改为 monokai。
+
 ```yaml
 codeblock:
   # Code Highlight theme
@@ -99,3 +118,121 @@ codeblock:
     # Available values: default | flat | mac
     style
 ```
+
+## 使能MathJax
+
+ 目前，NexT 提供两种数学公式渲染引擎，分别为 [MathJax](https://www.mathjax.org/) 和 [Katex](https://khan.github.io/KaTeX/)。本人选择了MathJax作为渲染引擎，主要考虑到该引擎相较更全面。
+
+步骤1：Windows下载[Pandoc](https://github.com/jgm/pandoc/releases/tag/2.9.2.1)，并安装默认安装。
+
+步骤2：卸载原有的渲染器 `hexo-renderer-marked`，并安装渲染器
+
+```bash
+npm uninstall hexo-renderer-marked
+npm install hexo-renderer-pandoc
+```
+
+步骤3：设置Next主题的_config.yml文件(themes/next/_config.yml)
+
+```yaml
+math:
+  every_page: true
+  mathjax:
+    enable: true
+    # Available values: none | ams | all
+    tags: none
+    # See: https://mhchem.github.io/MathJax-mhchem/
+    mhchem: false
+  katex:
+    enable: false
+    # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
+    copy_tex: false
+```
+
+参考文献：[Next主题的数学公式](https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/MATH.md)
+
+## 设置标签与分类
+
+### 设置分类
+
+步骤1：在终端窗口下，定位到 Hexo 站点目录下。使用 `hexo new page` 新建一个页面，命名为 `categories` ：
+
+```bash
+$ cd your-hexo-site
+$ hexo new page categories
+```
+
+步骤2：编辑刚新建的页面，将页面的 `type` 设置为 `categories` ，主题将自动为这个页面显示分类。页面内容如下：
+
+```markdown
+title: 分类
+date: 2022-05-03 13:53:41
+type: "categories"
+comments: false
+
+---
+```
+
+步骤3：在菜单中添加链接。编辑 主题配置（themes/next/_config.yml）文件 ， 添加 `categories` 到 `menu` 中，如下:
+
+```yaml
+menu:
+  home: /
+  archives: /archives
+  categories: /categoriesb
+```
+
+步骤4：在文章中分类标签
+
+```markdown
+categories:
+- [父目录<,子目录><，子子目录>]
+```
+
+例如，下面为文章定义了三级目录，文章在`计算机/编程语言/C语言`这个目录下。
+
+```
+categories:
+- [计算机,编程语言，C语言]
+```
+
+### 设置标签
+
+步骤1：在终端窗口下，定位到 Hexo 站点目录下。使用 `hexo new page` 新建一个页面，命名为 `tags` ：
+
+```bash
+$ cd your-hexo-site
+$ hexo new page categories
+```
+
+步骤2：编辑刚新建的页面，将页面的类型设置为 tags ，主题将自动为这个页面显示标签云。页面内容如下：
+
+```markdown
+title: 分类
+date: 2014-12-22 12:39:04
+type: "categorie
+comments: falses"
+---
+```
+
+步骤3：在菜单中添加链接。编辑 主题配置文件 ， 添加 `tags` 到 `menu` 中，如下:
+
+```yaml
+menu:
+  home: /
+  archives: /archives
+  tags: /tags
+```
+
+步骤4：在文章中使用标签Tags,例如
+
+```markdown
+tags: 
+    - 静态博客
+    - hexo
+    - Next主题
+```
+
+### Hexo标签和分类的使用注意事项
+
+[Front-matter | Hexo](https://hexo.io/zh-cn/docs/front-matter.html#%E5%88%86%E7%B1%BB%E5%92%8C%E6%A0%87%E7%AD%BE)
