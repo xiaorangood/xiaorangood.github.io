@@ -108,6 +108,15 @@
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">tags: </span><br><span class="line"><span class="bullet">    -</span> 静态博客</span><br><span class="line"><span class="bullet">    -</span> hexo</span><br><span class="line"><span class="bullet">    -</span> Next主题</span><br></pre></td></tr></table></figure>
 <h3 id="hexo标签和分类的使用注意事项">Hexo标签和分类的使用注意事项</h3>
 <p><a href="https://hexo.io/zh-cn/docs/front-matter.html#%E5%88%86%E7%B1%BB%E5%92%8C%E6%A0%87%E7%AD%BE">Front-matter | Hexo</a></p>
+<h2 id="设置本地搜索">设置本地搜索</h2>
+<p>步骤1：安装插件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<p>步骤2：修改站点文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Search </span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">./public/search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
+<p>步骤3：修改主题配置文件</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local Search</span></span><br><span class="line"><span class="comment"># Dependencies: https://ithub.com/theme-next/hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># If auto, trigger search by changing input.</span></span><br><span class="line">  <span class="comment"># If manual, trigger search by pressing enter key or search button.</span></span><br><span class="line">  <span class="attr">trigger:</span> <span class="string">auto</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">7</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h2 id="设置加载条">设置加载条</h2>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">pace:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># All available colors:</span></span><br><span class="line">  <span class="comment"># black | blue | green | orange | pink | purple | red | silver | white | yellow</span></span><br><span class="line">  <span class="attr">color:</span> <span class="string">blue</span></span><br><span class="line">  <span class="comment"># All available themes:</span></span><br><span class="line">  <span class="comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span></span><br><span class="line">  <span class="comment"># corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">minimal</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>blog</category>
@@ -116,117 +125,6 @@
         <tag>静态博客</tag>
         <tag>hexo</tag>
         <tag>Next主题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何利用GitHub作为图床</title>
-    <url>/2022/03/20/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8GitHub%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h2 id="下载picgo">下载PicGo</h2>
-<p>进入<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的下载地址</a>，根据系统选择版本。因为我的点好是 win11，因此选择的软件版本是 PicGo-Setup-2.3.0-x64.exe。下载完成后，双击软件按照默认设置安装。</p>
-<h2 id="创建-github-仓库">创建 GitHub 仓库</h2>
-<p>创建后，在我的GitHub页面中，就有一个 myImage 的仓库。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/xiaorangood/myImage.git</span><br><span class="line">git@github.com:xiaorangood/myImage.git</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h2 id="生成-token">生成 token</h2>
-<p>点击“头像”-&gt;"setting" -&gt; "Developer settings" -&gt; "Personal access tokens" -&gt; "Generate New token"。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-09.png" style="zoom:70%"/></p>
-<p>设置token的名字、有效期；并勾选“repo”，最后下拉到最下方，点击“Generate token”按钮。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-30.png" style="zoom:75%"/></p>
-<h2 id="配置picgo">配置picgo</h2>
-<p>打开picgo软件，在左边的栏目中点击“图床设置” -&gt; "GitHub图床"。按照下面的说明设置</p>
-<ul>
-<li>设定仓库名：按照“用户名/图床仓库名”的格式填写</li>
-<li>设定分支名：“master”</li>
-<li>设定Token：粘贴之前生成的Token</li>
-<li>指定存储路径：填写想要储存的路径，如“images/”，这样就会在仓库下创建一个名为 images 的文件夹，图片将会储存在此文件夹中。</li>
-<li>设定自定义域名：它的的作用是，在图片上传后，PicGo会按照<code>自定义域名+上传的图片名</code>的方式生成访问链接，放到粘贴板上，因为我们要使用jsDelivr加速访问，所以可以设置为 https://cdn.jsdelivr.net/gh/用户名/图床仓库名。jsDelivr的参考格式：https://cdn.jsdelivr.net/gh/xiaorangood/myImage。</li>
-</ul>
-<p>上述的内容填写完成后，点击“确认”按钮，再设置<strong>GitHub图床为默认图床</strong>。 <img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/20220320212009.png" style="zoom:85%"/></p>
-<h2 id="上传图片">上传图片</h2>
-<p>点击左侧栏目里的上传区后，将需要上传的图片拖入上传区即可。</p>
-]]></content>
-      <categories>
-        <category>blog</category>
-      </categories>
-      <tags>
-        <tag>静态博客</tag>
-        <tag>hexo</tag>
-        <tag>图床</tag>
-        <tag>Picgo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在Windows下利用Hexo搭建个人博客</title>
-    <url>/2022/03/20/%E5%9C%A8Windows%E4%B8%8B%E5%88%A9%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h2 id="本地创建个人博客">本地创建个人博客</h2>
-<h3 id="安装-git-工具">安装 git 工具</h3>
-<p>从<a href="https://git-scm.com/downloads">git官网</a>下载windows下的软件，本文按照时的软件版本为 2.35.1。</p>
-<p>安装软件时，使用默认设置一直点击 Next 按钮，一直到下图的页面勾选两个选项；然后点击 Install 安装 git 软件。 <img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_16-10-29.png" style="zoom:90%;" /></p>
-<p>勾选“Enable experimental support for pseudo consoles”选项是为了在 git bash 中启动 Hexo 服务后，可以通过 Ctrl + c 停止 Hexo 服务器的运行。</p>
-<span id="more"></span>
-<h3 id="安装node.js">安装node.js</h3>
-<p>Hexo是基于Node.js的，因此在安装Hexo前，需要安装该软件。</p>
-<p>从 <a href="https://nodejs.org/zh-cn/">Node.js官网</a>下载软件，当前版本号是 17.7.2。</p>
-<p>下载软件后，按照默认设置安装即可。</p>
-<h3 id="安装-hexo-软件">安装 Hexo 软件</h3>
-<p>执行以下几个命令安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将npm镜像修改为淘宝镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npm.taobao.org&quot;</span></span><br><span class="line"><span class="comment"># 使用npm安装 Hexo</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment"># 在当前目录下初始化一个博客目录，并进入该目录</span></span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line"><span class="comment"># 在博客目录使用命令启动Hexo服务器</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<p>浏览器后，输入 http://localhost:4000/ 即可打开博客网页。 如果希望在其他端口打开网页，可以使用 Hexo 命令指定端口。例如指定端口为5000。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
-<h3 id="创建hexo文件">创建Hexo文件</h3>
-<p>执行以下命令后，Hexo会在 source_posts 目录下创建以文章名命名的markdown文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo n <span class="string">&quot;文章名&quot;</span></span><br></pre></td></tr></table></figure>
-<p>然后执行命令生成html文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
-<p>最后使用命令运行 Hexo 服务器即可看到新内容</p>
-<h2 id="部署博客到git-pages">部署博客到Git Pages</h2>
-<h3 id="创建博客仓库">创建博客仓库</h3>
-<p>在github页面中，创建新仓库，仓库名字为 <strong>xiaorangood.github.io</strong> 。</p>
-<h3 id="安装自动部署工具并设置">安装自动部署工具并设置</h3>
-<p>执行以下命令安装部署工具：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
-<p>设置站点的_config.yml 配置文件内容：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:xiaorangood/xiaorangood.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-<h3 id="测试网络连接">测试网络连接</h3>
-<p>通过命令生成 ssh 密钥:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen</span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-<p>在获得密钥后，添加到github的个人设置页面中添加密钥：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-38-44.png" style="zoom:75%;" /></p>
-<p>添加密钥后，通过命令验证是否连接成功：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line">Hi xiaorangood! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
-<p>如果出现超时的现象，通过命令设置 git 的代理：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">&#x27;http://127.0.0.1:10809&#x27;</span></span><br><span class="line">git config --global https.proxy <span class="string">&#x27;http://127.0.0.1:10809&#x27;</span></span><br></pre></td></tr></table></figure>
-<h3 id="部署个人博客网页">部署个人博客网页</h3>
-<p>在blog的目录下执行命令部署个人博客：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<h2 id="使用source分支来保存博客源文件">使用source分支来保存博客源文件</h2>
-<h3 id="在-github-上创建新分支">在 github 上创建新分支</h3>
-<p>上个章节中展示了使用 master 分支来保存生成的博客页面的方法，但原来的markdown文件并没有保存。为了保存 Markdown 文件，在仓库中创建<code>source</code>分支。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-58-33.png" style="zoom:75%"/></p>
-<p>将source分支修改为默认分支：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-06-26.png" style="zoom:75%"/></p>
-<p>检查仓库的默认分支：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-07-14.png" style="zoom:75%"/></p>
-<h3 id="设置本地仓库">设置本地仓库</h3>
-<p>在 blog 所在目录，执行仓库初始化，并设置远端仓库的地址。然后切换到目标分支。这里我的博客是在<code>D:/blog/</code>目录下。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin git@github.com:xiaorangood/xiaorangood.github.io.git</span><br><span class="line">git checkout <span class="built_in">source</span> --</span><br></pre></td></tr></table></figure>
-<p>因为我们只需要保留博客源码，其他无关的文件并不希望推送，需要确保配好了.gitignore文件，通常如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br><span class="line">_multiconfig.yml</span><br></pre></td></tr></table></figure>
-<h3 id="提交源文件">提交源文件</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add . &amp;&amp;  git commit -m <span class="string">&quot;Regular save&quot;</span> &amp;&amp; git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
-<h3 id="删除非源文件">删除非源文件</h3>
-<p>由于source分支是从master复制而来，所以有一些是deployment文件。这些部署的文件可以删除，也可以理会。 删除文件夹后只剩下如下的文件夹。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node_modules/  scaffolds/  <span class="built_in">source</span>/  themes/</span><br></pre></td></tr></table></figure>
-<h2 id="新环境">新环境</h2>
-<p>假设换电脑了，要在新环境继续在原有仓库基础上撸文章，此时通过git clone将博客源码拉到本地，然后安装、初始化hexo就能搞定：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:xiaorangood/xiaorangood.github.io.git blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install hexo</span><br><span class="line">npm install hexo-deployer-git -save</span><br><span class="line"></span><br><span class="line">// hexo环境配置好后，继续像之前一样</span><br><span class="line">hexo new post_name</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>blog</category>
-      </categories>
-      <tags>
-        <tag>静态博客</tag>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -335,6 +233,117 @@
       </categories>
       <tags>
         <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Windows下利用Hexo搭建个人博客</title>
+    <url>/2022/03/20/%E5%9C%A8Windows%E4%B8%8B%E5%88%A9%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h2 id="本地创建个人博客">本地创建个人博客</h2>
+<h3 id="安装-git-工具">安装 git 工具</h3>
+<p>从<a href="https://git-scm.com/downloads">git官网</a>下载windows下的软件，本文按照时的软件版本为 2.35.1。</p>
+<p>安装软件时，使用默认设置一直点击 Next 按钮，一直到下图的页面勾选两个选项；然后点击 Install 安装 git 软件。 <img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_16-10-29.png" style="zoom:90%;" /></p>
+<p>勾选“Enable experimental support for pseudo consoles”选项是为了在 git bash 中启动 Hexo 服务后，可以通过 Ctrl + c 停止 Hexo 服务器的运行。</p>
+<span id="more"></span>
+<h3 id="安装node.js">安装node.js</h3>
+<p>Hexo是基于Node.js的，因此在安装Hexo前，需要安装该软件。</p>
+<p>从 <a href="https://nodejs.org/zh-cn/">Node.js官网</a>下载软件，当前版本号是 17.7.2。</p>
+<p>下载软件后，按照默认设置安装即可。</p>
+<h3 id="安装-hexo-软件">安装 Hexo 软件</h3>
+<p>执行以下几个命令安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将npm镜像修改为淘宝镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npm.taobao.org&quot;</span></span><br><span class="line"><span class="comment"># 使用npm安装 Hexo</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment"># 在当前目录下初始化一个博客目录，并进入该目录</span></span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line"><span class="comment"># 在博客目录使用命令启动Hexo服务器</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>浏览器后，输入 http://localhost:4000/ 即可打开博客网页。 如果希望在其他端口打开网页，可以使用 Hexo 命令指定端口。例如指定端口为5000。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
+<h3 id="创建hexo文件">创建Hexo文件</h3>
+<p>执行以下命令后，Hexo会在 source_posts 目录下创建以文章名命名的markdown文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo n <span class="string">&quot;文章名&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后执行命令生成html文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+<p>最后使用命令运行 Hexo 服务器即可看到新内容</p>
+<h2 id="部署博客到git-pages">部署博客到Git Pages</h2>
+<h3 id="创建博客仓库">创建博客仓库</h3>
+<p>在github页面中，创建新仓库，仓库名字为 <strong>xiaorangood.github.io</strong> 。</p>
+<h3 id="安装自动部署工具并设置">安装自动部署工具并设置</h3>
+<p>执行以下命令安装部署工具：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<p>设置站点的_config.yml 配置文件内容：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:xiaorangood/xiaorangood.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<h3 id="测试网络连接">测试网络连接</h3>
+<p>通过命令生成 ssh 密钥:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen</span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>在获得密钥后，添加到github的个人设置页面中添加密钥：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-38-44.png" style="zoom:75%;" /></p>
+<p>添加密钥后，通过命令验证是否连接成功：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line">Hi xiaorangood! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
+<p>如果出现超时的现象，通过命令设置 git 的代理：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">&#x27;http://127.0.0.1:10809&#x27;</span></span><br><span class="line">git config --global https.proxy <span class="string">&#x27;http://127.0.0.1:10809&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="部署个人博客网页">部署个人博客网页</h3>
+<p>在blog的目录下执行命令部署个人博客：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h2 id="使用source分支来保存博客源文件">使用source分支来保存博客源文件</h2>
+<h3 id="在-github-上创建新分支">在 github 上创建新分支</h3>
+<p>上个章节中展示了使用 master 分支来保存生成的博客页面的方法，但原来的markdown文件并没有保存。为了保存 Markdown 文件，在仓库中创建<code>source</code>分支。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-58-33.png" style="zoom:75%"/></p>
+<p>将source分支修改为默认分支：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-06-26.png" style="zoom:75%"/></p>
+<p>检查仓库的默认分支：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-07-14.png" style="zoom:75%"/></p>
+<h3 id="设置本地仓库">设置本地仓库</h3>
+<p>在 blog 所在目录，执行仓库初始化，并设置远端仓库的地址。然后切换到目标分支。这里我的博客是在<code>D:/blog/</code>目录下。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin git@github.com:xiaorangood/xiaorangood.github.io.git</span><br><span class="line">git checkout <span class="built_in">source</span> --</span><br></pre></td></tr></table></figure>
+<p>因为我们只需要保留博客源码，其他无关的文件并不希望推送，需要确保配好了.gitignore文件，通常如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br><span class="line">_multiconfig.yml</span><br></pre></td></tr></table></figure>
+<h3 id="提交源文件">提交源文件</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add . &amp;&amp;  git commit -m <span class="string">&quot;Regular save&quot;</span> &amp;&amp; git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
+<h3 id="删除非源文件">删除非源文件</h3>
+<p>由于source分支是从master复制而来，所以有一些是deployment文件。这些部署的文件可以删除，也可以理会。 删除文件夹后只剩下如下的文件夹。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node_modules/  scaffolds/  <span class="built_in">source</span>/  themes/</span><br></pre></td></tr></table></figure>
+<h2 id="新环境">新环境</h2>
+<p>假设换电脑了，要在新环境继续在原有仓库基础上撸文章，此时通过git clone将博客源码拉到本地，然后安装、初始化hexo就能搞定：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:xiaorangood/xiaorangood.github.io.git blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install hexo</span><br><span class="line">npm install hexo-deployer-git -save</span><br><span class="line"></span><br><span class="line">// hexo环境配置好后，继续像之前一样</span><br><span class="line">hexo new post_name</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
+      <tags>
+        <tag>静态博客</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何利用GitHub作为图床</title>
+    <url>/2022/03/20/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8GitHub%E4%BD%9C%E4%B8%BA%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h2 id="下载picgo">下载PicGo</h2>
+<p>进入<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的下载地址</a>，根据系统选择版本。因为我的点好是 win11，因此选择的软件版本是 PicGo-Setup-2.3.0-x64.exe。下载完成后，双击软件按照默认设置安装。</p>
+<h2 id="创建-github-仓库">创建 GitHub 仓库</h2>
+<p>创建后，在我的GitHub页面中，就有一个 myImage 的仓库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/xiaorangood/myImage.git</span><br><span class="line">git@github.com:xiaorangood/myImage.git</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="生成-token">生成 token</h2>
+<p>点击“头像”-&gt;"setting" -&gt; "Developer settings" -&gt; "Personal access tokens" -&gt; "Generate New token"。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-09.png" style="zoom:70%"/></p>
+<p>设置token的名字、有效期；并勾选“repo”，最后下拉到最下方，点击“Generate token”按钮。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_20-43-30.png" style="zoom:75%"/></p>
+<h2 id="配置picgo">配置picgo</h2>
+<p>打开picgo软件，在左边的栏目中点击“图床设置” -&gt; "GitHub图床"。按照下面的说明设置</p>
+<ul>
+<li>设定仓库名：按照“用户名/图床仓库名”的格式填写</li>
+<li>设定分支名：“master”</li>
+<li>设定Token：粘贴之前生成的Token</li>
+<li>指定存储路径：填写想要储存的路径，如“images/”，这样就会在仓库下创建一个名为 images 的文件夹，图片将会储存在此文件夹中。</li>
+<li>设定自定义域名：它的的作用是，在图片上传后，PicGo会按照<code>自定义域名+上传的图片名</code>的方式生成访问链接，放到粘贴板上，因为我们要使用jsDelivr加速访问，所以可以设置为 https://cdn.jsdelivr.net/gh/用户名/图床仓库名。jsDelivr的参考格式：https://cdn.jsdelivr.net/gh/xiaorangood/myImage。</li>
+</ul>
+<p>上述的内容填写完成后，点击“确认”按钮，再设置<strong>GitHub图床为默认图床</strong>。 <img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/20220320212009.png" style="zoom:85%"/></p>
+<h2 id="上传图片">上传图片</h2>
+<p>点击左侧栏目里的上传区后，将需要上传的图片拖入上传区即可。</p>
+]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
+      <tags>
+        <tag>静态博客</tag>
+        <tag>hexo</tag>
+        <tag>图床</tag>
+        <tag>Picgo</tag>
       </tags>
   </entry>
   <entry>
