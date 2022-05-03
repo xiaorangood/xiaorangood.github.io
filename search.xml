@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Next主题自定义友情链接</title>
+    <url>/2022/05/03/Next%E4%B8%BB%E9%A2%98%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/</url>
+    <content><![CDATA[<p>Next主题版本：8.10.1</p>
+<h1 id="新增-links-页面">新增 links 页面</h1>
+<p>在控制台使用命令创建：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page links</span><br></pre></td></tr></table></figure>
+<p>也可在博客根目录 /source 下手动创建 links 文件夹和里边的 index.md 文件。</p>
+<h1 id="编辑links对应的文档">编辑links对应的文档</h1>
+<p>在博客根目录 /source 下会生成一个 links 文件夹，打开其中的 index.md 文件，做如下编辑：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">title: 友情链接</span><br><span class="line">date: 2022-05-03 14:34:43</span><br><span class="line">type: &quot;links&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="编辑主题配置文件">编辑主题配置文件</h1>
+<p>在主题配置（themes/next/_config.yml)文件中，menu目录下添加如下配置：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">links:</span> <span class="string">/links/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-link</span></span><br></pre></td></tr></table></figure>
+<p>在 <code>/themes/next/languages/zh-CN.yml</code> 文件中 <code>menu</code> 下增加中文描述</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">links:</span> <span class="string">友链</span></span><br></pre></td></tr></table></figure>
+<h1 id="设置友链页面样式">设置友链页面样式</h1>
+<p>在<code>themes\next\layout\_partials\page</code>里新建<code>links.njk</code>文件，添加如下代码：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;% block content %&#125;</span><br><span class="line">  &#123;######################&#125;</span><br><span class="line">  &#123;### <span class="variable constant_">LINKS</span> <span class="variable constant_">BLOCK</span> ###&#125;</span><br><span class="line">  &#123;######################&#125;</span><br><span class="line">    &lt;div id=<span class="string">&quot;links&quot;</span>&gt;</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.links-content</span>&#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">margin-top</span>:<span class="number">1rem</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.link-navigation</span><span class="selector-pseudo">::after</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">content</span>: <span class="string">&quot; &quot;</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">display</span>: block;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">clear</span>: both;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">width</span>: <span class="number">300px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">font-size</span>: <span class="number">1rem</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">20px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">transition-duration</span>: <span class="number">0.15s</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">margin-bottom</span>: <span class="number">1rem</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">display</span>:flex;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span><span class="selector-pseudo">:nth-child</span>(odd) &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">float</span>: left;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span><span class="selector-pseudo">:nth-child</span>(even) &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">float</span>: left;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span><span class="selector-pseudo">:hover</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1.1</span>);</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">6px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.12</span>), <span class="number">0</span> <span class="number">0</span> <span class="number">6px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.04</span>);</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span> <span class="selector-tag">a</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">border</span>:none; </span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span> <span class="selector-class">.ava</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">width</span>: <span class="number">3rem</span><span class="meta">!important</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">height</span>: <span class="number">3rem</span><span class="meta">!important</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">margin</span>:<span class="number">0</span><span class="meta">!important</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">margin-right</span>: <span class="number">1em</span><span class="meta">!important</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">border-radius</span>:<span class="number">4px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span> <span class="selector-class">.card-header</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">font-style</span>: italic;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">overflow</span>: hidden;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">width</span>: <span class="number">236px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span> <span class="selector-class">.card-header</span> <span class="selector-tag">a</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">font-style</span>: normal;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">color</span>: <span class="number">#2bbc8a</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">font-weight</span>: bold;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">text-decoration</span>: none;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span> <span class="selector-class">.card-header</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">color</span>: <span class="number">#d480aa</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">text-decoration</span>: none;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span> <span class="selector-class">.card-header</span> <span class="selector-class">.info</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">font-style</span>:normal;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">color</span>:<span class="number">#a3a3a3</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">font-size</span>:<span class="number">14px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">min-width</span>: <span class="number">0</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">text-overflow</span>: ellipsis;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">overflow</span>: hidden;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">white-space</span>: nowrap;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;links-content&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;link-navigation&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                &#123;% for link in theme.mylinks %&#125;</span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;ava&quot;</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123; link.avatar &#125;&#125;&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123; link.site &#125;&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>@ &#123;&#123; link.nickname &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;info&quot;</span>&gt;</span>&#123;&#123; link.info &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                &#123;% endfor %&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;&#123; page.content &#125;&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">  &#123;##########################&#125;</span><br><span class="line">  &#123;### <span class="variable constant_">END</span> <span class="variable constant_">LINKS</span> <span class="variable constant_">BLOCK</span> ###&#125;</span><br><span class="line">  &#123;##########################&#125;</span><br><span class="line">&#123;% endblock %&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>修改<code>themes/next/layout/page.njk</code>文件，<strong>注意格式</strong>。 在</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;%- elif page.<span class="property">type</span> === <span class="string">&#x27;schedule&#x27;</span> and not page.<span class="property">title</span> %&#125;</span><br><span class="line">    &#123;&#123;- <span class="title function_">__</span>(<span class="string">&#x27;title.schedule&#x27;</span>) + page_title_suffix &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>下面添加：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;%- elif page.<span class="property">type</span> === <span class="string">&#x27;links&#x27;</span> and not page.<span class="property">title</span> %&#125;</span><br><span class="line">  &#123;&#123;- <span class="title function_">__</span>(<span class="string">&#x27;title.links&#x27;</span>) + page_title_suffix &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>在</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;% elif page.<span class="property">type</span> === <span class="string">&#x27;schedule&#x27;</span> %&#125;</span><br><span class="line">  &#123;%- include <span class="string">&#x27;_partials/page/schedule.njk&#x27;</span> -%&#125;</span><br></pre></td></tr></table></figure>
+<p>下面添加：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&#123;% elif page.<span class="property">type</span> === <span class="string">&#x27;links&#x27;</span> %&#125;</span><br><span class="line">  &#123;%- include <span class="string">&#x27;_partials/page/links.njk&#x27;</span> -%&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="设置友情链接页面">设置友情链接页面</h1>
+<p>在主题配置（themes/next/_config.yml)文件末尾处添加友链：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">mylinks:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">nickname:</span>  <span class="comment">#友链名称</span></span><br><span class="line">    <span class="attr">avatar:</span>   <span class="comment">#友链头像</span></span><br><span class="line">    <span class="attr">site:</span>   <span class="comment">#友链地址</span></span><br><span class="line">    <span class="attr">info:</span>   <span class="comment">#友链说明</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">nickname:</span>  <span class="comment">#友链名称</span></span><br><span class="line">    <span class="attr">avatar:</span>   <span class="comment">#友链头像</span></span><br><span class="line">    <span class="attr">site:</span>   <span class="comment">#友链地址</span></span><br><span class="line">    <span class="attr">info:</span>   <span class="comment">#友链说明</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
+      <tags>
+        <tag>静态博客</tag>
+        <tag>hexo</tag>
+        <tag>Next主题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo的Next主题配置</title>
     <url>/2022/03/26/hexo%E7%9A%84Next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<h2 id="选择仓库">选择仓库</h2>
@@ -69,56 +109,13 @@
 <h3 id="hexo标签和分类的使用注意事项">Hexo标签和分类的使用注意事项</h3>
 <p><a href="https://hexo.io/zh-cn/docs/front-matter.html#%E5%88%86%E7%B1%BB%E5%92%8C%E6%A0%87%E7%AD%BE">Front-matter | Hexo</a></p>
 ]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
       <tags>
         <tag>静态博客</tag>
         <tag>hexo</tag>
         <tag>Next主题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在Windows下利用Hexo搭建个人博客</title>
-    <url>/2022/03/20/%E5%9C%A8Windows%E4%B8%8B%E5%88%A9%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h2 id="本地创建个人博客">本地创建个人博客</h2>
-<h3 id="安装-git-工具">安装 git 工具</h3>
-<p>从<a href="https://git-scm.com/downloads">git官网</a>下载windows下的软件，本文按照时的软件版本为 2.35.1。</p>
-<p>安装软件时，使用默认设置一直点击 Next 按钮，一直到下图的页面勾选两个选项；然后点击 Install 安装 git 软件。 <img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_16-10-29.png" style="zoom:90%;" /></p>
-<p>勾选“Enable experimental support for pseudo consoles”选项是为了在 git bash 中启动 Hexo 服务后，可以通过 Ctrl + c 停止 Hexo 服务器的运行。</p>
-<span id="more"></span>
-<h3 id="安装node.js">安装node.js</h3>
-<p>Hexo是基于Node.js的，因此在安装Hexo前，需要安装该软件。</p>
-<p>从 <a href="https://nodejs.org/zh-cn/">Node.js官网</a>下载软件，当前版本号是 17.7.2。</p>
-<p>下载软件后，按照默认设置安装即可。</p>
-<h3 id="安装-hexo-软件">安装 Hexo 软件</h3>
-<p>执行以下几个命令安装 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将npm镜像修改为淘宝镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npm.taobao.org&quot;</span></span><br><span class="line"><span class="comment"># 使用npm安装 Hexo</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment"># 在当前目录下初始化一个博客目录，并进入该目录</span></span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line"><span class="comment"># 在博客目录使用命令启动Hexo服务器</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure> 浏览器后，输入 http://localhost:4000/ 即可打开博客网页。 如果希望在其他端口打开网页，可以使用 Hexo 命令指定端口。例如指定端口为5000。 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure></p>
-<h3 id="创建hexo文件">创建Hexo文件</h3>
-<p>执行以下命令后，Hexo会在 source_posts 目录下创建以文章名命名的markdown文件 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo n <span class="string">&quot;文章名&quot;</span></span><br></pre></td></tr></table></figure> 然后执行命令生成html文件 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure> 最后使用命令运行 Hexo 服务器即可看到新内容</p>
-<h2 id="部署博客到git-pages">部署博客到Git Pages</h2>
-<h3 id="创建博客仓库">创建博客仓库</h3>
-<p>在github页面中，创建新仓库，仓库名字为 <strong>xiaorangood.github.io</strong> 。</p>
-<h3 id="安装自动部署工具并设置">安装自动部署工具并设置</h3>
-<p>执行以下命令安装部署工具： <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure> 设置站点的_config.yml 配置文件内容： <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:xiaorangood/xiaorangood.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure> ### 测试网络连接 通过命令生成 ssh 密钥: <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen</span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure> 在获得密钥后，添加到github的个人设置页面中添加密钥：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-38-44.png" style="zoom:75%;" /></p>
-<p>添加密钥后，通过命令验证是否连接成功： <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line">Hi xiaorangood! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure> 如果出现超时的现象，通过命令设置 git 的代理： <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">&#x27;http://127.0.0.1:10809&#x27;</span></span><br><span class="line">git config --global https.proxy <span class="string">&#x27;http://127.0.0.1:10809&#x27;</span></span><br></pre></td></tr></table></figure> ### 部署个人博客网页 在blog的目录下执行命令部署个人博客： <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure></p>
-<h2 id="使用source分支来保存博客源文件">使用source分支来保存博客源文件</h2>
-<h3 id="在-github-上创建新分支">在 github 上创建新分支</h3>
-<p>上个章节中展示了使用 master 分支来保存生成的博客页面的方法，但原来的markdown文件并没有保存。为了保存 Markdown 文件，在仓库中创建<code>source</code>分支。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-58-33.png" style="zoom:75%"/></p>
-<p>将source分支修改为默认分支：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-06-26.png" style="zoom:75%"/></p>
-<p>检查仓库的默认分支：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-07-14.png" style="zoom:75%"/></p>
-<h3 id="设置本地仓库">设置本地仓库</h3>
-<p>在 blog 所在目录，执行仓库初始化，并设置远端仓库的地址。然后切换到目标分支。这里我的博客是在<code>D:/blog/</code>目录下。 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin git@github.com:xiaorangood/xiaorangood.github.io.git</span><br><span class="line">git checkout <span class="built_in">source</span> --</span><br></pre></td></tr></table></figure> 因为我们只需要保留博客源码，其他无关的文件并不希望推送，需要确保配好了.gitignore文件，通常如下： <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br><span class="line">_multiconfig.yml</span><br></pre></td></tr></table></figure></p>
-<h3 id="提交源文件">提交源文件</h3>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add . &amp;&amp;  git commit -m <span class="string">&quot;Regular save&quot;</span> &amp;&amp; git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
-<h3 id="删除非源文件">删除非源文件</h3>
-<p>由于source分支是从master复制而来，所以有一些是deployment文件。这些部署的文件可以删除，也可以理会。 删除文件夹后只剩下如下的文件夹。 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node_modules/  scaffolds/  <span class="built_in">source</span>/  themes/</span><br></pre></td></tr></table></figure></p>
-<h2 id="新环境">新环境</h2>
-<p>假设换电脑了，要在新环境继续在原有仓库基础上撸文章，此时通过git clone将博客源码拉到本地，然后安装、初始化hexo就能搞定： <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:xiaorangood/xiaorangood.github.io.git blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install hexo</span><br><span class="line">npm install hexo-deployer-git -save</span><br><span class="line"></span><br><span class="line">// hexo环境配置好后，继续像之前一样</span><br><span class="line">hexo new post_name</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <tags>
-        <tag>静态博客</tag>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -127,7 +124,8 @@
     <content><![CDATA[<h2 id="下载picgo">下载PicGo</h2>
 <p>进入<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo的下载地址</a>，根据系统选择版本。因为我的点好是 win11，因此选择的软件版本是 PicGo-Setup-2.3.0-x64.exe。下载完成后，双击软件按照默认设置安装。</p>
 <h2 id="创建-github-仓库">创建 GitHub 仓库</h2>
-<p>创建后，在我的GitHub页面中，就有一个 myImage 的仓库。 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/xiaorangood/myImage.git</span><br><span class="line">git@github.com:xiaorangood/myImage.git</span><br></pre></td></tr></table></figure></p>
+<p>创建后，在我的GitHub页面中，就有一个 myImage 的仓库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/xiaorangood/myImage.git</span><br><span class="line">git@github.com:xiaorangood/myImage.git</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
 <h2 id="生成-token">生成 token</h2>
 <p>点击“头像”-&gt;"setting" -&gt; "Developer settings" -&gt; "Personal access tokens" -&gt; "Generate New token"。</p>
@@ -147,10 +145,196 @@
 <h2 id="上传图片">上传图片</h2>
 <p>点击左侧栏目里的上传区后，将需要上传的图片拖入上传区即可。</p>
 ]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
       <tags>
+        <tag>静态博客</tag>
         <tag>hexo</tag>
         <tag>图床</tag>
         <tag>Picgo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Windows下利用Hexo搭建个人博客</title>
+    <url>/2022/03/20/%E5%9C%A8Windows%E4%B8%8B%E5%88%A9%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h2 id="本地创建个人博客">本地创建个人博客</h2>
+<h3 id="安装-git-工具">安装 git 工具</h3>
+<p>从<a href="https://git-scm.com/downloads">git官网</a>下载windows下的软件，本文按照时的软件版本为 2.35.1。</p>
+<p>安装软件时，使用默认设置一直点击 Next 按钮，一直到下图的页面勾选两个选项；然后点击 Install 安装 git 软件。 <img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_16-10-29.png" style="zoom:90%;" /></p>
+<p>勾选“Enable experimental support for pseudo consoles”选项是为了在 git bash 中启动 Hexo 服务后，可以通过 Ctrl + c 停止 Hexo 服务器的运行。</p>
+<span id="more"></span>
+<h3 id="安装node.js">安装node.js</h3>
+<p>Hexo是基于Node.js的，因此在安装Hexo前，需要安装该软件。</p>
+<p>从 <a href="https://nodejs.org/zh-cn/">Node.js官网</a>下载软件，当前版本号是 17.7.2。</p>
+<p>下载软件后，按照默认设置安装即可。</p>
+<h3 id="安装-hexo-软件">安装 Hexo 软件</h3>
+<p>执行以下几个命令安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将npm镜像修改为淘宝镜像</span></span><br><span class="line">npm config <span class="built_in">set</span> registry <span class="string">&quot;https://registry.npm.taobao.org&quot;</span></span><br><span class="line"><span class="comment"># 使用npm安装 Hexo</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment"># 在当前目录下初始化一个博客目录，并进入该目录</span></span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line"><span class="comment"># 在博客目录使用命令启动Hexo服务器</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>浏览器后，输入 http://localhost:4000/ 即可打开博客网页。 如果希望在其他端口打开网页，可以使用 Hexo 命令指定端口。例如指定端口为5000。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
+<h3 id="创建hexo文件">创建Hexo文件</h3>
+<p>执行以下命令后，Hexo会在 source_posts 目录下创建以文章名命名的markdown文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo n <span class="string">&quot;文章名&quot;</span></span><br></pre></td></tr></table></figure>
+<p>然后执行命令生成html文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+<p>最后使用命令运行 Hexo 服务器即可看到新内容</p>
+<h2 id="部署博客到git-pages">部署博客到Git Pages</h2>
+<h3 id="创建博客仓库">创建博客仓库</h3>
+<p>在github页面中，创建新仓库，仓库名字为 <strong>xiaorangood.github.io</strong> 。</p>
+<h3 id="安装自动部署工具并设置">安装自动部署工具并设置</h3>
+<p>执行以下命令安装部署工具：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<p>设置站点的_config.yml 配置文件内容：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:xiaorangood/xiaorangood.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+<h3 id="测试网络连接">测试网络连接</h3>
+<p>通过命令生成 ssh 密钥:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen</span><br><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>在获得密钥后，添加到github的个人设置页面中添加密钥：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-38-44.png" style="zoom:75%;" /></p>
+<p>添加密钥后，通过命令验证是否连接成功：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br><span class="line">Hi xiaorangood! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
+<p>如果出现超时的现象，通过命令设置 git 的代理：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy <span class="string">&#x27;http://127.0.0.1:10809&#x27;</span></span><br><span class="line">git config --global https.proxy <span class="string">&#x27;http://127.0.0.1:10809&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="部署个人博客网页">部署个人博客网页</h3>
+<p>在blog的目录下执行命令部署个人博客：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h2 id="使用source分支来保存博客源文件">使用source分支来保存博客源文件</h2>
+<h3 id="在-github-上创建新分支">在 github 上创建新分支</h3>
+<p>上个章节中展示了使用 master 分支来保存生成的博客页面的方法，但原来的markdown文件并没有保存。为了保存 Markdown 文件，在仓库中创建<code>source</code>分支。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-58-33.png" style="zoom:75%"/></p>
+<p>将source分支修改为默认分支：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-06-26.png" style="zoom:75%"/></p>
+<p>检查仓库的默认分支：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-07-14.png" style="zoom:75%"/></p>
+<h3 id="设置本地仓库">设置本地仓库</h3>
+<p>在 blog 所在目录，执行仓库初始化，并设置远端仓库的地址。然后切换到目标分支。这里我的博客是在<code>D:/blog/</code>目录下。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin git@github.com:xiaorangood/xiaorangood.github.io.git</span><br><span class="line">git checkout <span class="built_in">source</span> --</span><br></pre></td></tr></table></figure>
+<p>因为我们只需要保留博客源码，其他无关的文件并不希望推送，需要确保配好了.gitignore文件，通常如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br><span class="line">_multiconfig.yml</span><br></pre></td></tr></table></figure>
+<h3 id="提交源文件">提交源文件</h3>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add . &amp;&amp;  git commit -m <span class="string">&quot;Regular save&quot;</span> &amp;&amp; git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
+<h3 id="删除非源文件">删除非源文件</h3>
+<p>由于source分支是从master复制而来，所以有一些是deployment文件。这些部署的文件可以删除，也可以理会。 删除文件夹后只剩下如下的文件夹。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node_modules/  scaffolds/  <span class="built_in">source</span>/  themes/</span><br></pre></td></tr></table></figure>
+<h2 id="新环境">新环境</h2>
+<p>假设换电脑了，要在新环境继续在原有仓库基础上撸文章，此时通过git clone将博客源码拉到本地，然后安装、初始化hexo就能搞定：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:xiaorangood/xiaorangood.github.io.git blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install hexo</span><br><span class="line">npm install hexo-deployer-git -save</span><br><span class="line"></span><br><span class="line">// hexo环境配置好后，继续像之前一样</span><br><span class="line">hexo new post_name</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>blog</category>
+      </categories>
+      <tags>
+        <tag>静态博客</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构系列笔记-概述</title>
+    <url>/2021/11/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<h2 id="程序的本质">1 程序的本质</h2>
+<p>程序等于算法加数据结构。</p>
+<h2 id="基本数据结构">2 基本数据结构</h2>
+<ol type="1">
+<li>线性结构:（1）线性表、（2）栈和队列、（3） 串、（4）数组和广义表</li>
+<li>非线性结构：树、广义表</li>
+</ol>
+<h2 id="基本数据处理技术">3 基本数据处理技术</h2>
+<ol type="1">
+<li>查找技术</li>
+<li>排序技术</li>
+</ol>
+<span id="more"></span>
+<h2 id="数据结构的研究内容">4 数据结构的研究内容</h2>
+<h3 id="计算机解决问题的基本步骤">4.1 计算机解决问题的基本步骤</h3>
+<ol type="1">
+<li>具体问题抽象为数据模型，其实质为
+<ol type="1">
+<li>分析问题；</li>
+<li>提取操作对象；</li>
+<li>找出操作对象之间的关系；</li>
+<li>用数学语言描述，即数据结构；</li>
+</ol></li>
+<li>设计算法</li>
+<li>编程、调试、运行</li>
+</ol>
+<h3 id="计算机的应用">4.2 计算机的应用</h3>
+<p>早期，计算机主要应用于数值计算，例如求解梁架结构中的应力、预报人口增长情况。</p>
+<p>数值计算的特点是数据元素之间的关系简单，但计算复杂。</p>
+<p>现在，计算机越来越多地被用于非数值计算问题，例如学生学籍管理系统、图书管理系统、人事管理系统、仓库管理系统、通讯录等。</p>
+<p>非数值计算各要素的含义 | 例子 | 操作对象 | 操作算法 | 操作对象间关系 | 数据结构 | |---|---|---|---|---| |学籍管理系统中的关系|每位学生的信息|查询、插入、修改、删除等|线性关系|线性数据结构、线性表| |人机棋局对弈问题中的关系|描述棋盘格局信息的棋局状态|走棋，即选择一种策略使棋局状态发生变化|非线性关系|树|</p>
+<p>非数值计算问题的特点：</p>
+<ol type="1">
+<li>所有问题无法使用数学公式或方程来描述，是一些“非数值计算”的程序设计问题；</li>
+<li>描述非数值计算问题的数学模型不是数学方程，而是诸如表、树和图之类的具有逻辑关系的数据；</li>
+<li>数据结构是一门研究非数值计算程序设计中操作对象以及它们之间的关系和操作的学科。</li>
+</ol>
+<h2 id="基本概念和术语">5 基本概念和术语</h2>
+<h3 id="数据data">5.1 数据（Data）</h3>
+<p>数据（Data）是输入计算机且能被计算机处理的各种符号的集合，是信息的载体，是对客观事物符号化的表示；是能够被计算机识别、存储和加工。</p>
+<p>数据包括数值型的数据和非数值型的数据；数值型的数据有整数、实数等；非数值型数据有文字、图像、图形、声音等。</p>
+<h3 id="数据元素data-element">5.2 数据元素（Data element）</h3>
+<p>数据元素（Data element）是数据的基本单位，在计算机程序中通常作为一个整体进行考虑和处理。数据元素也简称为元素、记录、结点或顶点。例如学生表中一个学生的信息，即一个记录。</p>
+<h3 id="数据项data-item">5.3 数据项（Data Item）</h3>
+<p>数据项（Data Item）是构成数据元素的不分割的最小单位。例如学生表中一个学生的姓名、学号、性别、出生日期、政治面貌均可作为一个数据项。</p>
+<h3 id="数据数据元素数据项三者之间的关系">5.4 数据、数据元素、数据项三者之间的关系</h3>
+<p>数据&gt;数据元素&gt;数据项。</p>
+<h3 id="数据对象data-object">5.5 数据对象（Data Object）</h3>
+<p>数据对象（Data Object）是性质相同的数据类型的集合，是数据的一个子集。例如整数数据对象、字母字符数据对象、学籍表也可以看作一个数据对象。</p>
+<h3 id="数据元素与数据对象的区别">5.6 数据元素与数据对象的区别</h3>
+<ol type="1">
+<li>数据元素是组成数据的基本单位，是数据集合的个体；</li>
+<li>数据对象是性质想吐的数据元素的集合，是数据集合的子集。</li>
+</ol>
+<h3 id="数据结构">5.6 数据结构</h3>
+<h4 id="定义">5.6.1 定义</h4>
+<p>数据元素不是孤立存在的，它们之间存在某种关系，数据元素相互之间的关系称为结构（Structure）。数据结构是相互之间存在一种或多种特定关系的数据元素集合。数据结构是带结构的数据元素的集合。</p>
+<h4 id="数据结构的内容">5.6.2 数据结构的内容</h4>
+<ul>
+<li>数据元素之间的逻辑关系，也称为逻辑结构；</li>
+<li>数据元素及其结构在计算机内存中的表示（又称为映像），称为数据的物理结果或数据的存储结构；</li>
+<li>数据的运算和实现，即对数据元素可以施加的操作以及这些操作在相应的存储结构上的实现。</li>
+</ul>
+<h4 id="数据结构的层次">5.6.3 数据结构的层次</h4>
+<p>数据结构的层次包括逻辑结构和存储结构。</p>
+<ol type="1">
+<li>逻辑结构是描述数据元素之间的逻辑关系；与数据存储无关，独立于计算机；是从具体问题抽象出来的数学模型。</li>
+<li>存储结构又称为物理结构，是数据元素及其关系在计算机存储器中的结构（存储方式）；是数据结构在计算机中的表示。</li>
+<li>两者的关系：
+<ol type="1">
+<li>存储结构是逻辑关系的映射与元素本身的映像；</li>
+<li>逻辑结构是数据结构的抽象，存储结构是数据结构的实现；</li>
+<li>两者综合起来建立了数据元素之间的结构关系。</li>
+</ol></li>
+</ol>
+<h4 id="逻辑结构的分类">5.6.4 逻辑结构的分类</h4>
+<ol type="1">
+<li>划分方法一：线性结构和非线性结构。
+<ol type="1">
+<li>线性结构是有且仅有一个开始和一个终端结点，并且所有结点都最多只有一个直接前驱和一个直接后继。</li>
+<li>非线性结构是一个节点可能有多个直接前驱和直接后继，例如树、图。</li>
+</ol></li>
+<li>划分方法二：将逻辑结构分为四种基本逻辑结构，即集合、线性、树、图。</li>
+</ol>
+<h4 id="存储结构的分类">5.6.5 存储结构的分类</h4>
+<p>存储结构的分类包括顺序存储结构、链式存储结构、索引存储结构、散列存储结构。</p>
+<ol type="1">
+<li>顺序存储结构是用一组连续的存储单元，依次存储数据元素，数据元素之间的逻辑关系由元素的存储位置来表示。C语言中用数组来实现顺序存储结构。</li>
+<li>链式存储结构是用一组任意的存储单元存储数据元素，数据元素之间的逻辑关系用指针来表示。C语言中用指针来实现链式存储结构。</li>
+<li>索引存储结构是在存储结点信息的同时，还建立附加的索引表。索引表的每一项称为索引项。索引表的一般形式是“(关键字，地址)”。关键字是能唯一表示结点的那些数据项。若每个结点的索引表中都有一个索引项，则该索引表称为稠密索引（Dense Index）。若一组结点子啊索引表中只对应一个索引项，则该索引表称为稀疏索引表（Sparse Index）。</li>
+<li>散列存储结构是根据结点的关键字直接计算出该点的存储地址。</li>
+</ol>
+<h3 id="数据结构类型">5.7 数据结构类型</h3>
+<p>数据结构类型可以约束变量或常量的取值范围；约束变量或常量的操作。</p>
+<p>数据类型（Data Type）是一组性质相同的值的集合以及定义于这个值集合上的一组操作的总称。数据类型=值的集合+值集合上的一组操作。</p>
+<p>抽象数据类型（Abstract Data Type，ADT）是指一个数学模型以及定义在此数据模型上的一组操作。由用户定义，从问题抽象出数据模型（逻辑结构），还包括定义在数据模型上的一组抽象运算（相关操作），不考虑计算机内的具体存储结构与运损的具体实现算法。</p>
+<p>抽象数据类型的形式定义：抽象数据类型可用（D，S，P）三元组表示，其中D是数据对象，S是D上的关系集，P是对D的基本操作集。</p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -348,114 +532,8 @@ T(n) = T_1(n) \times T_2(n) = O(f(n)) \times O(g(n)) = O(f(n) \times g(n))
 <h2 id="渐进空间复杂度">渐进空间复杂度</h2>
 <p>渐进空间复杂度是算法所需存储空间的度量，记作<span class="math inline">\(S(n)=O(f(n))\)</span>，其中n为问题的规模大小。算法要占用的空间包括：①算法本身占据的空间，输入/输出，指令，常数，变量等；②算法需要使用的辅助空间。</p>
 ]]></content>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构系列笔记-概述</title>
-    <url>/2021/11/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-%E6%A6%82%E8%BF%B0/</url>
-    <content><![CDATA[<h2 id="程序的本质">1 程序的本质</h2>
-<p>程序等于算法加数据结构。</p>
-<h2 id="基本数据结构">2 基本数据结构</h2>
-<ol type="1">
-<li>线性结构:（1）线性表、（2）栈和队列、（3） 串、（4）数组和广义表</li>
-<li>非线性结构：树、广义表</li>
-</ol>
-<h2 id="基本数据处理技术">3 基本数据处理技术</h2>
-<ol type="1">
-<li>查找技术</li>
-<li>排序技术</li>
-</ol>
-<span id="more"></span>
-<h2 id="数据结构的研究内容">4 数据结构的研究内容</h2>
-<h3 id="计算机解决问题的基本步骤">4.1 计算机解决问题的基本步骤</h3>
-<ol type="1">
-<li>具体问题抽象为数据模型，其实质为
-<ol type="1">
-<li>分析问题；</li>
-<li>提取操作对象；</li>
-<li>找出操作对象之间的关系；</li>
-<li>用数学语言描述，即数据结构；</li>
-</ol></li>
-<li>设计算法</li>
-<li>编程、调试、运行</li>
-</ol>
-<h3 id="计算机的应用">4.2 计算机的应用</h3>
-<p>早期，计算机主要应用于数值计算，例如求解梁架结构中的应力、预报人口增长情况。</p>
-<p>数值计算的特点是数据元素之间的关系简单，但计算复杂。</p>
-<p>现在，计算机越来越多地被用于非数值计算问题，例如学生学籍管理系统、图书管理系统、人事管理系统、仓库管理系统、通讯录等。</p>
-<p>非数值计算各要素的含义 | 例子 | 操作对象 | 操作算法 | 操作对象间关系 | 数据结构 | |---|---|---|---|---| |学籍管理系统中的关系|每位学生的信息|查询、插入、修改、删除等|线性关系|线性数据结构、线性表| |人机棋局对弈问题中的关系|描述棋盘格局信息的棋局状态|走棋，即选择一种策略使棋局状态发生变化|非线性关系|树|</p>
-<p>非数值计算问题的特点：</p>
-<ol type="1">
-<li>所有问题无法使用数学公式或方程来描述，是一些“非数值计算”的程序设计问题；</li>
-<li>描述非数值计算问题的数学模型不是数学方程，而是诸如表、树和图之类的具有逻辑关系的数据；</li>
-<li>数据结构是一门研究非数值计算程序设计中操作对象以及它们之间的关系和操作的学科。</li>
-</ol>
-<h2 id="基本概念和术语">5 基本概念和术语</h2>
-<h3 id="数据data">5.1 数据（Data）</h3>
-<p>数据（Data）是输入计算机且能被计算机处理的各种符号的集合，是信息的载体，是对客观事物符号化的表示；是能够被计算机识别、存储和加工。</p>
-<p>数据包括数值型的数据和非数值型的数据；数值型的数据有整数、实数等；非数值型数据有文字、图像、图形、声音等。</p>
-<h3 id="数据元素data-element">5.2 数据元素（Data element）</h3>
-<p>数据元素（Data element）是数据的基本单位，在计算机程序中通常作为一个整体进行考虑和处理。数据元素也简称为元素、记录、结点或顶点。例如学生表中一个学生的信息，即一个记录。</p>
-<h3 id="数据项data-item">5.3 数据项（Data Item）</h3>
-<p>数据项（Data Item）是构成数据元素的不分割的最小单位。例如学生表中一个学生的姓名、学号、性别、出生日期、政治面貌均可作为一个数据项。</p>
-<h3 id="数据数据元素数据项三者之间的关系">5.4 数据、数据元素、数据项三者之间的关系</h3>
-<p>数据&gt;数据元素&gt;数据项。</p>
-<h3 id="数据对象data-object">5.5 数据对象（Data Object）</h3>
-<p>数据对象（Data Object）是性质相同的数据类型的集合，是数据的一个子集。例如整数数据对象、字母字符数据对象、学籍表也可以看作一个数据对象。</p>
-<h3 id="数据元素与数据对象的区别">5.6 数据元素与数据对象的区别</h3>
-<ol type="1">
-<li>数据元素是组成数据的基本单位，是数据集合的个体；</li>
-<li>数据对象是性质想吐的数据元素的集合，是数据集合的子集。</li>
-</ol>
-<h3 id="数据结构">5.6 数据结构</h3>
-<h4 id="定义">5.6.1 定义</h4>
-<p>数据元素不是孤立存在的，它们之间存在某种关系，数据元素相互之间的关系称为结构（Structure）。数据结构是相互之间存在一种或多种特定关系的数据元素集合。数据结构是带结构的数据元素的集合。</p>
-<h4 id="数据结构的内容">5.6.2 数据结构的内容</h4>
-<ul>
-<li>数据元素之间的逻辑关系，也称为逻辑结构；</li>
-<li>数据元素及其结构在计算机内存中的表示（又称为映像），称为数据的物理结果或数据的存储结构；</li>
-<li>数据的运算和实现，即对数据元素可以施加的操作以及这些操作在相应的存储结构上的实现。</li>
-</ul>
-<h4 id="数据结构的层次">5.6.3 数据结构的层次</h4>
-<p>数据结构的层次包括逻辑结构和存储结构。</p>
-<ol type="1">
-<li>逻辑结构是描述数据元素之间的逻辑关系；与数据存储无关，独立于计算机；是从具体问题抽象出来的数学模型。</li>
-<li>存储结构又称为物理结构，是数据元素及其关系在计算机存储器中的结构（存储方式）；是数据结构在计算机中的表示。</li>
-<li>两者的关系：
-<ol type="1">
-<li>存储结构是逻辑关系的映射与元素本身的映像；</li>
-<li>逻辑结构是数据结构的抽象，存储结构是数据结构的实现；</li>
-<li>两者综合起来建立了数据元素之间的结构关系。</li>
-</ol></li>
-</ol>
-<h4 id="逻辑结构的分类">5.6.4 逻辑结构的分类</h4>
-<ol type="1">
-<li>划分方法一：线性结构和非线性结构。
-<ol type="1">
-<li>线性结构是有且仅有一个开始和一个终端结点，并且所有结点都最多只有一个直接前驱和一个直接后继。</li>
-<li>非线性结构是一个节点可能有多个直接前驱和直接后继，例如树、图。</li>
-</ol></li>
-<li>划分方法二：将逻辑结构分为四种基本逻辑结构，即集合、线性、树、图。</li>
-</ol>
-<h4 id="存储结构的分类">5.6.5 存储结构的分类</h4>
-<p>存储结构的分类包括顺序存储结构、链式存储结构、索引存储结构、散列存储结构。</p>
-<ol type="1">
-<li>顺序存储结构是用一组连续的存储单元，依次存储数据元素，数据元素之间的逻辑关系由元素的存储位置来表示。C语言中用数组来实现顺序存储结构。</li>
-<li>链式存储结构是用一组任意的存储单元存储数据元素，数据元素之间的逻辑关系用指针来表示。C语言中用指针来实现链式存储结构。</li>
-<li>索引存储结构是在存储结点信息的同时，还建立附加的索引表。索引表的每一项称为索引项。索引表的一般形式是“(关键字，地址)”。关键字是能唯一表示结点的那些数据项。若每个结点的索引表中都有一个索引项，则该索引表称为稠密索引（Dense Index）。若一组结点子啊索引表中只对应一个索引项，则该索引表称为稀疏索引表（Sparse Index）。</li>
-<li>散列存储结构是根据结点的关键字直接计算出该点的存储地址。</li>
-</ol>
-<h3 id="数据结构类型">5.7 数据结构类型</h3>
-<p>数据结构类型可以约束变量或常量的取值范围；约束变量或常量的操作。</p>
-<p>数据类型（Data Type）是一组性质相同的值的集合以及定义于这个值集合上的一组操作的总称。数据类型=值的集合+值集合上的一组操作。</p>
-<p>抽象数据类型（Abstract Data Type，ADT）是指一个数学模型以及定义在此数据模型上的一组操作。由用户定义，从问题抽象出数据模型（逻辑结构），还包括定义在数据模型上的一组抽象运算（相关操作），不考虑计算机内的具体存储结构与运损的具体实现算法。</p>
-<p>抽象数据类型的形式定义：抽象数据类型可用（D，S，P）三元组表示，其中D是数据对象，S是D上的关系集，P是对D的基本操作集。</p>
-]]></content>
       <categories>
-        <category>数据结构aaaa</category>
-        <category>dfdf</category>
+        <category>数据结构</category>
       </categories>
       <tags>
         <tag>数据结构</tag>
