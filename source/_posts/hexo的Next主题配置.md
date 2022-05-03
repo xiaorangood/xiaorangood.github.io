@@ -238,3 +238,54 @@ tags:
 ### Hexo标签和分类的使用注意事项
 
 [Front-matter | Hexo](https://hexo.io/zh-cn/docs/front-matter.html#%E5%88%86%E7%B1%BB%E5%92%8C%E6%A0%87%E7%AD%BE)
+
+## 设置本地搜索
+
+步骤1：安装插件
+
+```bash
+npm install hexo-generator-searchdb --save
+```
+
+步骤2：修改站点文件
+
+```yaml
+# Search 
+search:
+  path: ./public/search.xml
+  field: post
+  format: html
+  limit: 10000
+```
+
+步骤3：修改主题配置文件
+
+```yaml
+# Local Search
+# Dependencies: https://ithub.com/theme-next/hexo-generator-searchdb
+local_search:
+  enable: true
+  # If auto, trigger search by changing input.
+  # If manual, trigger search by pressing enter key or search button.
+  trigger: auto
+  # Show top n results per article, show all results by setting to -1
+  top_n_per_article: 7
+  # Unescape html strings to the readable one.
+  unescape: false
+  # Preload the search data when the page loads.
+  preload: false
+```
+
+## 设置加载条
+
+```yaml
+pace:
+  enable: true
+  # All available colors:
+  # black | blue | green | orange | pink | purple | red | silver | white | yellow
+  color: blue
+  # All available themes:
+  # big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple
+  # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal
+  theme: minimal
+```
