@@ -1,12 +1,13 @@
 ---
 title: Next主题自定义友情链接
-date: 2022-05-03 14:52:31
 categories:
-- blog
-tags: 
-- 静态博客
-- hexo
-- Next主题
+  - blog
+tags:
+  - 静态博客
+  - hexo
+  - Next主题
+abbrlink: 914c8c3f
+date: 2022-05-03 14:52:31
 ---
 
 Next主题版本：8.10.1

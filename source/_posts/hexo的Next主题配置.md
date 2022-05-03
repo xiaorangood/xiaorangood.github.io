@@ -2,11 +2,13 @@
 title: hexo的Next主题配置
 date: 2022-03-26 23:52:03
 categories:
+
 - blog
-tags: 
+  tags: 
 - 静态博客
 - hexo
 - Next主题
+
 ---
 
 ## 选择仓库
@@ -274,6 +276,21 @@ local_search:
   unescape: false
   # Preload the search data when the page loads.
   preload: false
+```
+
+## 设置Front-matter内容
+
+新创建文章的时候，希望文件头带有标签等字符。
+
+hexo具有的标记见[Front-matter | Hexo](https://hexo.io/zh-cn/docs/front-matter.html)。
+
+只要设置`scaffolds/post.md`文件即可。
+
+```mar
+title: {{ title }}
+date: {{ date }}
+categories:
+tags:
 ```
 
 ## 设置加载条

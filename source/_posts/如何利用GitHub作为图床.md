@@ -1,13 +1,14 @@
 ---
 title: 如何利用GitHub作为图床
-date: 2022-03-20 20:24:00
 categories:
-- blog
-tags: 
-- 静态博客
-- hexo
-- 图床
-- Picgo
+  - blog
+tags:
+  - 静态博客
+  - hexo
+  - 图床
+  - Picgo
+abbrlink: 80154e2d
+date: 2022-03-20 20:24:00
 ---
 
 ## 下载PicGo

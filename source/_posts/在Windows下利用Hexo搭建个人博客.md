@@ -1,11 +1,12 @@
 ---
 title: 在Windows下利用Hexo搭建个人博客
-date: 2022-03-20 15:26:46
 categories:
-- blog
-tags: 
+  - blog
+tags:
   - 静态博客
   - hexo
+abbrlink: e29692c
+date: 2022-03-20 15:26:46
 ---
 
 ## 本地创建个人博客
