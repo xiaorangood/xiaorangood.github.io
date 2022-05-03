@@ -1,14 +1,13 @@
 ---
 title: hexo的Next主题配置
-date: 2022-03-26 23:52:03
 categories:
-
-- blog
-  tags: 
-- 静态博客
-- hexo
-- Next主题
-
+  - blog
+tags:
+  - 静态博客
+  - hexo
+  - Next主题
+abbrlink: ff5f663b
+date: 2022-03-26 23:52:03
 ---
 
 ## 选择仓库
