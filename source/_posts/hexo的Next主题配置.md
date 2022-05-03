@@ -1,10 +1,12 @@
 ---
 title: hexo的Next主题配置
 date: 2022-03-26 23:52:03
+categories:
+- blog
 tags: 
-    - 静态博客
-    - hexo
-    - Next主题
+- 静态博客
+- hexo
+- Next主题
 ---
 
 ## 选择仓库
