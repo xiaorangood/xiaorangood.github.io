@@ -22,23 +22,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/./public/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Xiaoran的笔记">
-<meta property="og:url" content="http://example.com/categories/blog/index.html">
+    <meta name="description" content="1 问题 运行hexo s后，出现下面所示的错误： 123456789INFO  Start processingINFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000&#x2F; . Press Ctrl+C to stop.(node:15252) Warning: Accessing non-existent property &amp;#x27;lineno&amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决Hexo的Accessing non-existent property &#39;xxx&#39; of module exports inside circular dependency问题">
+<meta property="og:url" content="http://example.com/posts/afa63241.html">
 <meta property="og:site_name" content="Xiaoran的笔记">
+<meta property="og:description" content="1 问题 运行hexo s后，出现下面所示的错误： 123456789INFO  Start processingINFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000&#x2F; . Press Ctrl+C to stop.(node:15252) Warning: Accessing non-existent property &amp;#x27;lineno&amp;#x2">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-05T14:55:50.000Z">
+<meta property="article:modified_time" content="2022-05-05T15:08:46.431Z">
 <meta property="article:author" content="萧然">
+<meta property="article:tag" content="静态博客">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/categories/blog/">
+<link rel="canonical" href="http://example.com/posts/afa63241.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/blog/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/afa63241.html","path":"posts/afa63241.html","title":"解决Hexo的Accessing non-existent property 'xxx' of module exports inside circular dependency问题"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>分类: blog | Xiaoran的笔记</title>
+<title>解决Hexo的Accessing non-existent property 'xxx' of module exports inside circular dependency问题 | Xiaoran的笔记</title>
   
 
 
@@ -127,7 +133,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -140,6 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-text">1 问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-text">2 原因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">3 解决方法</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -191,130 +198,116 @@
 </noscript>
 
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">blog
-          <small>分类</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/afa63241.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="萧然">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaoran的笔记">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="解决Hexo的Accessing non-existent property 'xxx' of module exports inside circular dependency问题 | Xiaoran的笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          解决Hexo的Accessing non-existent property 'xxx' of module exports inside circular dependency问题
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+
+      <time title="创建时间：2022-05-05 22:55:50 / 修改时间：23:08:46" itemprop="dateCreated datePublished" datetime="2022-05-05T22:55:50+08:00">2022-05-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="问题">1 问题</h1>
+<p>运行<code>hexo s</code>后，出现下面所示的错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.</span><br><span class="line">(node:15252) Warning: Accessing non-existent property <span class="string">&#x27;lineno&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(Use `node --trace-warnings ...` to show <span class="built_in">where</span> the warning was created)</span><br><span class="line">(node:15252) Warning: Accessing non-existent property <span class="string">&#x27;column&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:15252) Warning: Accessing non-existent property <span class="string">&#x27;filename&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:15252) Warning: Accessing non-existent property <span class="string">&#x27;lineno&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:15252) Warning: Accessing non-existent property <span class="string">&#x27;column&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:15252) Warning: Accessing non-existent property <span class="string">&#x27;filename&#x27;</span> of module exports inside circular dependency</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h1 id="原因">2 原因</h1>
+<p>通过搜索，直到了是因为<code>nib</code>使用了比较低版本的<code>stylus</code>。</p>
+<p>参考链接：</p>
+<p>[1] https://www.haoyizebo.com/posts/710984d0/</p>
+<p>[2] https://gsgundam.com/2021-10-29-hexo-nodejs14-accessing-non-existent-property-issue/</p>
+<h1 id="解决方法">3 解决方法</h1>
+<p>使用yarn指定包的版本。</p>
+<p>步骤1：安装<code>yarn</code> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yarn</span><br></pre></td></tr></table></figure></p>
+<p>步骤2：修改博客站点的<code>package.json</code>文件 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;resolutions&quot;: &#123;</span><br><span class="line">  &quot;stylus&quot;: &quot;^0.54.8&quot;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>步骤3：使用命令更新依赖包 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn install</span><br></pre></td></tr></table></figure></p>
+<p>经过依赖包跟新，则只能定了stylus使用的版本</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-05-05T22:55:50+08:00"
-              content="2022-05-05">
-          05-05
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/afa63241.html" itemprop="url">
-            <span itemprop="name">解决Hexo的Accessing non-existent property 'xxx' of module exports inside circular dependency问题</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" rel="tag"># 静态博客</a>
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/914c8c3f.html" rel="prev" title="Next主题自定义友情链接">
+                  <i class="fa fa-chevron-left"></i> Next主题自定义友情链接
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-05-03T14:52:31+08:00"
-              content="2022-05-03">
-          05-03
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/914c8c3f.html" itemprop="url">
-            <span itemprop="name">Next主题自定义友情链接</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-03-26T23:52:03+08:00"
-              content="2022-03-26">
-          03-26
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/ff5f663b.html" itemprop="url">
-            <span itemprop="name">hexo的Next主题配置</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-03-20T20:24:00+08:00"
-              content="2022-03-20">
-          03-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/80154e2d.html" itemprop="url">
-            <span itemprop="name">如何利用GitHub作为图床</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-03-20T15:26:46+08:00"
-              content="2022-03-20">
-          03-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/e29692c.html" itemprop="url">
-            <span itemprop="name">在Windows下利用Hexo搭建个人博客</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
-  </div>
-  
-  
-  
 
 </div>
   </main>

@@ -152,7 +152,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -201,6 +201,94 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/afa63241.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="萧然">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiaoran的笔记">
+      <meta itemprop="description" content="">
+    </span>
+    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Xiaoran的笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/afa63241.html" class="post-title-link" itemprop="url">解决Hexo的Accessing non-existent property 'xxx' of module exports inside circular dependency问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-05-05 22:55:50 / 修改时间：23:08:46" itemprop="dateCreated datePublished" datetime="2022-05-05T22:55:50+08:00">2022-05-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="问题">1 问题</h1>
+<p>运行<code>hexo s</code>后，出现下面所示的错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.</span><br><span class="line">(node:15252) Warning: Accessing non-existent property <span class="string">&#x27;lineno&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(Use `node --trace-warnings ...` to show <span class="built_in">where</span> the warning was created)</span><br><span class="line">(node:15252) Warning: Accessing non-existent property <span class="string">&#x27;column&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:15252) Warning: Accessing non-existent property <span class="string">&#x27;filename&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:15252) Warning: Accessing non-existent property <span class="string">&#x27;lineno&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:15252) Warning: Accessing non-existent property <span class="string">&#x27;column&#x27;</span> of module exports inside circular dependency</span><br><span class="line">(node:15252) Warning: Accessing non-existent property <span class="string">&#x27;filename&#x27;</span> of module exports inside circular dependency</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/afa63241.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/posts/914c8c3f.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -231,7 +319,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-05-03 14:52:31 / 修改时间：16:34:43" itemprop="dateCreated datePublished" datetime="2022-05-03T14:52:31+08:00">2022-05-03</time>
+      <time title="创建时间：2022-05-03 14:52:31 / 修改时间：23:00:29" itemprop="dateCreated datePublished" datetime="2022-05-03T14:52:31+08:00">2022-05-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -254,33 +342,18 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>Next主题版本：8.10.1</p>
-<h1 id="新增-links-页面">新增 links 页面</h1>
+<h1 id="新增-links-页面">1 新增 links 页面</h1>
 <p>在控制台使用命令创建：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page links</span><br></pre></td></tr></table></figure>
 <p>也可在博客根目录 /source 下手动创建 links 文件夹和里边的 index.md 文件。</p>
-<h1 id="编辑links对应的文档">编辑links对应的文档</h1>
-<p>在博客根目录 /source 下会生成一个 links 文件夹，打开其中的 index.md 文件，做如下编辑：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: 友情链接</span><br><span class="line">date: 2022-05-03 14:34:43</span><br><span class="line">type: &quot;links&quot;</span><br></pre></td></tr></table></figure>
-<h1 id="编辑主题配置文件">编辑主题配置文件</h1>
-<p>在主题配置（themes/next/_config.yml)文件中，menu目录下添加如下配置：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">links:</span> <span class="string">/links/</span> <span class="string">||</span> <span class="string">fas</span> <span class="string">fa-link</span></span><br></pre></td></tr></table></figure>
-<p>在 <code>/themes/next/languages/zh-CN.yml</code> 文件中 <code>menu</code> 下增加中文描述</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">links:</span> <span class="string">友链</span></span><br></pre></td></tr></table></figure>
-<h1 id="设置友链页面样式">设置友链页面样式</h1>
-<p>在<code>themes\next\layout\_partials\page</code>里新建<code>links.njk</code>文件，添加如下代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block content %&#125;</span><br><span class="line">  &#123;######################&#125;</span><br><span class="line">  &#123;### <span class="variable constant_">LINKS</span> <span class="variable constant_">BLOCK</span> ###&#125;</span><br><span class="line">  &#123;######################&#125;</span><br><span class="line">    &lt;div id=<span class="string">&quot;links&quot;</span>&gt;</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.links-content</span>&#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">margin-top</span>:<span class="number">1rem</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.link-navigation</span><span class="selector-pseudo">::after</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">content</span>: <span class="string">&quot; &quot;</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">display</span>: block;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">clear</span>: both;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">width</span>: <span class="number">300px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">font-size</span>: <span class="number">1rem</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">20px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">transition-duration</span>: <span class="number">0.15s</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">margin-bottom</span>: <span class="number">1rem</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">display</span>:flex;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span><span class="selector-pseudo">:nth-child</span>(odd) &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">float</span>: left;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span><span class="selector-pseudo">:nth-child</span>(even) &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">float</span>: left;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span><span class="selector-pseudo">:hover</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1.1</span>);</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">2px</span> <span class="number">6px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.12</span>), <span class="number">0</span> <span class="number">0</span> <span class="number">6px</span> <span class="number">0</span> <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.04</span>);</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span> <span class="selector-tag">a</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">border</span>:none; </span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span> <span class="selector-class">.ava</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">width</span>: <span class="number">3rem</span><span class="meta">!important</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">height</span>: <span class="number">3rem</span><span class="meta">!important</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">margin</span>:<span class="number">0</span><span class="meta">!important</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">margin-right</span>: <span class="number">1em</span><span class="meta">!important</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">border-radius</span>:<span class="number">4px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml"></span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span> <span class="selector-class">.card-header</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">font-style</span>: italic;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">overflow</span>: hidden;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">width</span>: <span class="number">236px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span> <span class="selector-class">.card-header</span> <span class="selector-tag">a</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">font-style</span>: normal;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">color</span>: <span class="number">#2bbc8a</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">font-weight</span>: bold;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">text-decoration</span>: none;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span> <span class="selector-class">.card-header</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">color</span>: <span class="number">#d480aa</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">text-decoration</span>: none;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            <span class="selector-class">.card</span> <span class="selector-class">.card-header</span> <span class="selector-class">.info</span> &#123;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">font-style</span>:normal;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">color</span>:<span class="number">#a3a3a3</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">font-size</span>:<span class="number">14px</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">min-width</span>: <span class="number">0</span>;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">text-overflow</span>: ellipsis;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">overflow</span>: hidden;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">                <span class="attribute">white-space</span>: nowrap;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-css"><span class="language-xml">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span></span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;links-content&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;link-navigation&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                &#123;% for link in theme.mylinks %&#125;</span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;ava&quot;</span> <span class="attr">src</span>=<span class="string">&quot;&#123;&#123; link.avatar &#125;&#125;&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card-header&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123; link.site &#125;&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>@ &#123;&#123; link.nickname &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;info&quot;</span>&gt;</span>&#123;&#123; link.info &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                &#123;% endfor %&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            &#123;&#123; page.content &#125;&#125;</span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">  &#123;##########################&#125;</span><br><span class="line">  &#123;### <span class="variable constant_">END</span> <span class="variable constant_">LINKS</span> <span class="variable constant_">BLOCK</span> ###&#125;</span><br><span class="line">  &#123;##########################&#125;</span><br><span class="line">&#123;% endblock %&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>修改<code>themes/next/layout/page.njk</code>文件，<strong>注意格式</strong>。 在</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- elif page.<span class="property">type</span> === <span class="string">&#x27;schedule&#x27;</span> and not page.<span class="property">title</span> %&#125;</span><br><span class="line">    &#123;&#123;- <span class="title function_">__</span>(<span class="string">&#x27;title.schedule&#x27;</span>) + page_title_suffix &#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>下面添加：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- elif page.<span class="property">type</span> === <span class="string">&#x27;links&#x27;</span> and not page.<span class="property">title</span> %&#125;</span><br><span class="line">  &#123;&#123;- <span class="title function_">__</span>(<span class="string">&#x27;title.links&#x27;</span>) + page_title_suffix &#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>在</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% elif page.<span class="property">type</span> === <span class="string">&#x27;schedule&#x27;</span> %&#125;</span><br><span class="line">  &#123;%- include <span class="string">&#x27;_partials/page/schedule.njk&#x27;</span> -%&#125;</span><br></pre></td></tr></table></figure>
-<p>下面添加：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% elif page.<span class="property">type</span> === <span class="string">&#x27;links&#x27;</span> %&#125;</span><br><span class="line">  &#123;%- include <span class="string">&#x27;_partials/page/links.njk&#x27;</span> -%&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="设置友情链接页面">设置友情链接页面</h1>
-<p>在主题配置（themes/next/_config.yml)文件末尾处添加友链：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mylinks:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">nickname:</span>  <span class="comment">#友链名称</span></span><br><span class="line">    <span class="attr">avatar:</span>   <span class="comment">#友链头像</span></span><br><span class="line">    <span class="attr">site:</span>   <span class="comment">#友链地址</span></span><br><span class="line">    <span class="attr">info:</span>   <span class="comment">#友链说明</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">nickname:</span>  <span class="comment">#友链名称</span></span><br><span class="line">    <span class="attr">avatar:</span>   <span class="comment">#友链头像</span></span><br><span class="line">    <span class="attr">site:</span>   <span class="comment">#友链地址</span></span><br><span class="line">    <span class="attr">info:</span>   <span class="comment">#友链说明</span></span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/914c8c3f.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -342,7 +415,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-03 22:57:03" itemprop="dateModified" datetime="2022-05-03T22:57:03+08:00">2022-05-03</time>
+      <time title="修改时间：2022-05-05 22:53:39" itemprop="dateModified" datetime="2022-05-05T22:53:39+08:00">2022-05-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -364,7 +437,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="选择仓库">选择仓库</h2>
+          <h1 id="选择仓库">1 选择仓库</h1>
 <p>在设置主题时候，无意间发现Next是有两个库，名字很相像，名字与地址分别是：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next">theme-next/hexo-theme-next</a></li>
@@ -441,7 +514,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-03 16:34:43" itemprop="dateModified" datetime="2022-05-03T16:34:43+08:00">2022-05-03</time>
+      <time title="修改时间：2022-05-04 00:06:57" itemprop="dateModified" datetime="2022-05-04T00:06:57+08:00">2022-05-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -463,9 +536,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="下载picgo">下载PicGo</h2>
+          <h2 id="下载picgo">1 下载PicGo</h2>
 <p>进入<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases">PicGo的下载地址</a>，根据系统选择版本。因为我的点好是 win11，因此选择的软件版本是 PicGo-Setup-2.3.0-x64.exe。下载完成后，双击软件按照默认设置安装。</p>
-<h2 id="创建-github-仓库">创建 GitHub 仓库</h2>
+<h2 id="创建-github-仓库">2 创建 GitHub 仓库</h2>
 <p>创建后，在我的GitHub页面中，就有一个 myImage 的仓库。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/xiaorangood/myImage.git</span><br><span class="line">git@github.com:xiaorangood/myImage.git</span><br></pre></td></tr></table></figure>
           <!--noindex-->
@@ -559,10 +632,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="本地创建个人博客">本地创建个人博客</h2>
-<h3 id="安装-git-工具">安装 git 工具</h3>
+          <h2 id="本地创建个人博客">0.1 本地创建个人博客</h2>
+<h3 id="安装-git-工具">0.1.1 安装 git 工具</h3>
 <p>从<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">git官网</a>下载windows下的软件，本文按照时的软件版本为 2.35.1。</p>
-<p>安装软件时，使用默认设置一直点击 Next 按钮，一直到下图的页面勾选两个选项；然后点击 Install 安装 git 软件。 <img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_16-10-29.png" style="zoom:90%;" /></p>
+<p>安装软件时，使用默认设置一直点击 Next 按钮，一直到下图的页面勾选两个选项；然后点击 Install 安装 git 软件。 <img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_16-10-29.png" style="zoom:90%;"></p>
 <p>勾选“Enable experimental support for pseudo consoles”选项是为了在 git bash 中启动 Hexo 服务后，可以通过 Ctrl + c 停止 Hexo 服务器的运行。</p>
           <!--noindex-->
             <div class="post-button">
@@ -655,13 +728,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="数据结构与算法的研究内容">数据结构与算法的研究内容</h2>
+          <h2 id="数据结构与算法的研究内容">0.1 数据结构与算法的研究内容</h2>
 <ol type="1">
 <li>逻辑结构：研究对象的特征及其相互之间的关系。</li>
 <li>存储结构：研究有效组织计算机存储。</li>
 <li>算法：有效地实现对象之间的“运算”关系。</li>
 </ol>
-<h2 id="算法的定义">算法的定义</h2>
+<h2 id="算法的定义">0.2 算法的定义</h2>
 <p>算法是对特定问题求解方法和步骤的一种描述，它是指令的有限序列。其中每个指令表示一个或多个操作。</p>
           <!--noindex-->
             <div class="post-button">
@@ -754,14 +827,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="程序的本质">1 程序的本质</h2>
+          <h2 id="程序的本质">0.1 1 程序的本质</h2>
 <p>程序等于算法加数据结构。</p>
-<h2 id="基本数据结构">2 基本数据结构</h2>
+<h2 id="基本数据结构">0.2 2 基本数据结构</h2>
 <ol type="1">
 <li>线性结构:（1）线性表、（2）栈和队列、（3） 串、（4）数组和广义表</li>
 <li>非线性结构：树、广义表</li>
 </ol>
-<h2 id="基本数据处理技术">3 基本数据处理技术</h2>
+<h2 id="基本数据处理技术">0.3 3 基本数据处理技术</h2>
 <ol type="1">
 <li>查找技术</li>
 <li>排序技术</li>
