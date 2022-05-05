@@ -22,15 +22,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.10.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/./public/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="0.1 数据结构与算法的研究内容  逻辑结构：研究对象的特征及其相互之间的关系。 存储结构：研究有效组织计算机存储。 算法：有效地实现对象之间的“运算”关系。  0.2 算法的定义 算法是对特定问题求解方法和步骤的一种描述，它是指令的有限序列。其中每个指令表示一个或多个操作。">
+    <meta name="description" content="1 数据结构与算法的研究内容  逻辑结构：研究对象的特征及其相互之间的关系。 存储结构：研究有效组织计算机存储。 算法：有效地实现对象之间的“运算”关系。  2 算法的定义 算法是对特定问题求解方法和步骤的一种描述，它是指令的有限序列。其中每个指令表示一个或多个操作。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构系列笔记-算法与复杂度分析">
 <meta property="og:url" content="http://example.com/posts/bd4b8c1c.html">
 <meta property="og:site_name" content="Xiaoran的笔记">
-<meta property="og:description" content="0.1 数据结构与算法的研究内容  逻辑结构：研究对象的特征及其相互之间的关系。 存储结构：研究有效组织计算机存储。 算法：有效地实现对象之间的“运算”关系。  0.2 算法的定义 算法是对特定问题求解方法和步骤的一种描述，它是指令的有限序列。其中每个指令表示一个或多个操作。">
+<meta property="og:description" content="1 数据结构与算法的研究内容  逻辑结构：研究对象的特征及其相互之间的关系。 存储结构：研究有效组织计算机存储。 算法：有效地实现对象之间的“运算”关系。  2 算法的定义 算法是对特定问题求解方法和步骤的一种描述，它是指令的有限序列。其中每个指令表示一个或多个操作。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-12-30T09:43:14.000Z">
-<meta property="article:modified_time" content="2022-05-03T09:05:16.325Z">
+<meta property="article:published_time" content="2021-11-22T09:43:14.000Z">
+<meta property="article:modified_time" content="2021-11-05T15:32:27.304Z">
 <meta property="article:author" content="萧然">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%9A%84%E7%A0%94%E7%A9%B6%E5%86%85%E5%AE%B9"><span class="nav-text">0.1 数据结构与算法的研究内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">0.2 算法的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E6%8F%8F%E8%BF%B0"><span class="nav-text">0.3 算法的描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E4%B8%8E%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">0.4 算法与程序的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%89%B9%E6%80%A7"><span class="nav-text">0.5 算法特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%A6%81%E6%B1%82"><span class="nav-text">0.6 算法设计的要求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%A7"><span class="nav-text">0.6.1 正确性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%AF%BB%E6%80%A7"><span class="nav-text">0.6.2 可读性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%A5%E5%A3%AE%E6%80%A7"><span class="nav-text">0.6.3 健壮性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%95%88%E6%80%A7"><span class="nav-text">0.6.4 高效性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90"><span class="nav-text">0.7 算法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E6%95%88%E7%8E%87"><span class="nav-text">0.8 算法的时间效率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87%E7%9A%84%E5%BA%A6%E9%87%8F%E6%96%B9%E6%B3%95"><span class="nav-text">0.8.1 算法效率的度量方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E5%90%8E%E7%BB%9F%E8%AE%A1"><span class="nav-text">0.8.1.1 事后统计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E5%89%8D%E5%88%86%E6%9E%90%E6%B3%95"><span class="nav-text">0.8.1.2 事前分析法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E9%87%8F%E7%BA%A7"><span class="nav-text">0.8.1.3 数量级</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%AE%9A%E4%B9%89"><span class="nav-text">0.8.2 算法时间复杂度定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="nav-text">0.8.3 算法时间复杂度基本步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90%E4%BE%8B%E9%A2%98"><span class="nav-text">0.8.4 时间复杂度分析例题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%901%E8%AE%A1%E7%AE%97nn%E7%9F%A9%E9%98%B5%E7%9B%B8%E4%B9%98"><span class="nav-text">0.8.4.1 例子1：计算N×N矩阵相乘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%902"><span class="nav-text">0.8.4.2 例子2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B%E5%AD%903%E5%88%86%E6%9E%90%E4%BB%A5%E4%B8%8B%E7%A8%8B%E5%BA%8F%E6%AE%B5%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-text">0.8.4.3 例子3：分析以下程序段的时间复杂度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E7%B1%BB"><span class="nav-text">0.8.5 算法时间复杂度分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%A7o%E7%9A%84%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99"><span class="nav-text">0.9 大O的运算规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E6%B3%95%E6%B3%95%E5%88%99"><span class="nav-text">0.9.1 加法法则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%98%E6%B3%95%E8%A7%84%E5%88%99"><span class="nav-text">0.9.2 乘法规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6tn%E6%8C%89%E7%85%A7%E6%95%B0%E9%87%8F%E7%BA%A7%E9%80%92%E5%A2%9E%E9%A1%BA%E5%BA%8F"><span class="nav-text">0.10 时间复杂度\(T(n)\)按照数量级递增顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B8%90%E8%BF%9B%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-text">0.11 渐进空间复杂度</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%9A%84%E7%A0%94%E7%A9%B6%E5%86%85%E5%AE%B9"><span class="nav-text">1 数据结构与算法的研究内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">2 算法的定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E6%8F%8F%E8%BF%B0"><span class="nav-text">3 算法的描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E4%B8%8E%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-text">4 算法与程序的关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%89%B9%E6%80%A7"><span class="nav-text">5 算法特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%A6%81%E6%B1%82"><span class="nav-text">6 算法设计的要求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E6%80%A7"><span class="nav-text">6.1 正确性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%AF%BB%E6%80%A7"><span class="nav-text">6.2 可读性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%A5%E5%A3%AE%E6%80%A7"><span class="nav-text">6.3 健壮性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E6%95%88%E6%80%A7"><span class="nav-text">6.4 高效性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90"><span class="nav-text">7 算法分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E6%95%88%E7%8E%87"><span class="nav-text">8 算法的时间效率</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87%E7%9A%84%E5%BA%A6%E9%87%8F%E6%96%B9%E6%B3%95"><span class="nav-text">8.1 算法效率的度量方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%90%8E%E7%BB%9F%E8%AE%A1"><span class="nav-text">8.1.1 事后统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%89%8D%E5%88%86%E6%9E%90%E6%B3%95"><span class="nav-text">8.1.2 事前分析法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E9%87%8F%E7%BA%A7"><span class="nav-text">8.1.3 数量级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%AE%9A%E4%B9%89"><span class="nav-text">8.2 算法时间复杂度定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="nav-text">8.3 算法时间复杂度基本步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90%E4%BE%8B%E9%A2%98"><span class="nav-text">8.4 时间复杂度分析例题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%901%E8%AE%A1%E7%AE%97nn%E7%9F%A9%E9%98%B5%E7%9B%B8%E4%B9%98"><span class="nav-text">8.4.1 例子1：计算N×N矩阵相乘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%902"><span class="nav-text">8.4.2 例子2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%903%E5%88%86%E6%9E%90%E4%BB%A5%E4%B8%8B%E7%A8%8B%E5%BA%8F%E6%AE%B5%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-text">8.4.3 例子3：分析以下程序段的时间复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E7%B1%BB"><span class="nav-text">8.5 算法时间复杂度分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%A7o%E7%9A%84%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99"><span class="nav-text">9 大O的运算规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E6%B3%95%E6%B3%95%E5%88%99"><span class="nav-text">9.1 加法法则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%98%E6%B3%95%E8%A7%84%E5%88%99"><span class="nav-text">9.2 乘法规则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6tn%E6%8C%89%E7%85%A7%E6%95%B0%E9%87%8F%E7%BA%A7%E9%80%92%E5%A2%9E%E9%A1%BA%E5%BA%8F"><span class="nav-text">10 时间复杂度\(T(n)\)按照数量级递增顺序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%90%E8%BF%9B%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-text">11 渐进空间复杂度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E5%A5%BD%E7%AE%97%E6%B3%95%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="nav-text">12 设计好算法的过程</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -237,14 +237,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-12-30 17:43:14" itemprop="dateCreated datePublished" datetime="2021-12-30T17:43:14+08:00">2021-12-30</time>
+      <time title="创建时间：2021-11-22 17:43:14" itemprop="dateCreated datePublished" datetime="2021-11-22T17:43:14+08:00">2021-11-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-05-03 17:05:16" itemprop="dateModified" datetime="2022-05-03T17:05:16+08:00">2022-05-03</time>
+      <time title="修改时间：2021-11-05 23:32:27" itemprop="dateModified" datetime="2021-11-05T23:32:27+08:00">2021-11-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -266,25 +266,25 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="数据结构与算法的研究内容">0.1 数据结构与算法的研究内容</h2>
+        <h1 id="数据结构与算法的研究内容">1 数据结构与算法的研究内容</h1>
 <ol type="1">
 <li>逻辑结构：研究对象的特征及其相互之间的关系。</li>
 <li>存储结构：研究有效组织计算机存储。</li>
 <li>算法：有效地实现对象之间的“运算”关系。</li>
 </ol>
-<h2 id="算法的定义">0.2 算法的定义</h2>
+<h1 id="算法的定义">2 算法的定义</h1>
 <p>算法是对特定问题求解方法和步骤的一种描述，它是指令的有限序列。其中每个指令表示一个或多个操作。</p>
 <span id="more"></span>
-<h2 id="算法的描述">0.3 算法的描述</h2>
+<h1 id="算法的描述">3 算法的描述</h1>
 <ol type="1">
 <li>自然语言：英语、中文。</li>
 <li>流程图：传统流程图、NS流程图。</li>
 <li>伪代码（类语言）：类C语言。</li>
 <li>程序代码：C语言程序、JAVA语言程序。</li>
 </ol>
-<h2 id="算法与程序的关系">0.4 算法与程序的关系</h2>
+<h1 id="算法与程序的关系">4 算法与程序的关系</h1>
 <p>算法是解决问题的一种方法或一个过程，考虑如何将输入转换成输出，一个问题可以有多种算法。程序是用某种程序设计语言对算法的具体实现。程序=数据结构+算法；数据结构通过算法实现操作；算法根据数据结构设计程序。</p>
-<h2 id="算法特性">0.5 算法特性</h2>
+<h1 id="算法特性">5 算法特性</h1>
 <p>一个算法必须具备以下五个重要特征：</p>
 <ol type="1">
 <li>有穷性：一个算法必须总是在执行有穷步骤之后结束，且每一步都在有穷时间内完成。</li>
@@ -293,7 +293,7 @@
 <li>一个算法有零个或多个输入。</li>
 <li>一个算法有一个或多个输出。</li>
 </ol>
-<h2 id="算法设计的要求">0.6 算法设计的要求</h2>
+<h1 id="算法设计的要求">6 算法设计的要求</h1>
 <p>具有四个要求：</p>
 <ol type="1">
 <li>正确性（Correctness）</li>
@@ -301,7 +301,7 @@
 <li>健壮性（Robustness）</li>
 <li>高效性（Efficiency）</li>
 </ol>
-<h3 id="正确性">0.6.1 正确性</h3>
+<h2 id="正确性">6.1 正确性</h2>
 <p>正确性是满足问题要求，能正确解决问题。 算法转换为程序后要注意：</p>
 <ol type="1">
 <li>程序中不含语法错误；</li>
@@ -310,17 +310,17 @@
 <li>程序对于一切合法的输入数据都能得出满足要求的结果。</li>
 </ol>
 <p>通常以第三层意义上的正确性作为衡量一个算法是否合格的标准。</p>
-<h3 id="可读性">0.6.2 可读性</h3>
+<h2 id="可读性">6.2 可读性</h2>
 <p>可读性具有2层含义：</p>
 <ol type="1">
 <li>算法主要是为了人阅读和交流，其次才是为计算机执行，因此算法应该易于人的理解；</li>
 <li>另一方面，晦涩难读的算法易于隐藏较多错误而难以调试。</li>
 </ol>
-<h3 id="健壮性">0.6.3 健壮性</h3>
+<h2 id="健壮性">6.3 健壮性</h2>
 <p>健壮性是指当输入非法数据时，算法恰当的做出反应或进行相应处理，而不是产生莫名奇妙的输出结果。处理出错的方法，不应是中断程序的执行，而应该是返回一个表示错误或错误性质的值，以便在更高的抽象层次上进行处理。</p>
-<h3 id="高效性">0.6.4 高效性</h3>
+<h2 id="高效性">6.4 高效性</h2>
 <p>高效性要求尽量少的时间和尽量低的存储需求。</p>
-<h2 id="算法分析">0.7 算法分析</h2>
+<h1 id="算法分析">7 算法分析</h1>
 <p>算法分析用来评价同一个问题的多个算法。算法分析的目的是看算法实际是否可行，并在同一问题存在多个算法时可进行性能上的比较，以便从中挑选除比较优的算法。</p>
 <p>一个好算法首先具备正确性，然后健壮性、可读性；在这几个方面多满足的情况下，主要考虑算法的效率，通过算法的效率高低来评判不同算法的优劣程度。算法效率包括：</p>
 <ol type="1">
@@ -328,16 +328,16 @@
 <li>空间效率：指算法执行过程中所消耗的存储空间。</li>
 </ol>
 <p><strong>时间效率和空间效率有时候是矛盾的。</strong></p>
-<h2 id="算法的时间效率">0.8 算法的时间效率</h2>
-<h3 id="算法效率的度量方法">0.8.1 算法效率的度量方法</h3>
+<h1 id="算法的时间效率">8 算法的时间效率</h1>
+<h2 id="算法效率的度量方法">8.1 算法效率的度量方法</h2>
 <p>算法时间效率可以用依据该算法编制的程序在计算机上所消耗的时间来度量。有两种<strong>度量</strong>方法：</p>
 <ol type="1">
 <li>事后统计：</li>
 <li>事前分析：</li>
 </ol>
-<h4 id="事后统计">0.8.1.1 事后统计</h4>
+<h3 id="事后统计">8.1.1 事后统计</h3>
 <p>事后统计方法是将算法实现，测算其时间和空间开销；缺点是编写程序实现算法将或非较多的时间和精力，所得实验结果依赖于计算机的软硬件等环境因素，掩盖算法本身的优劣。</p>
-<h4 id="事前分析法">0.8.1.2 事前分析法</h4>
+<h3 id="事前分析法">8.1.2 事前分析法</h3>
 <ul>
 <li>事前分析法是对算法所消耗资源的一种估计算法。</li>
 <li>一个算法的运行时间是一个算法在计算机上运行所耗费的时间，大致可以等于计算机执行一种简单的操作（如赋值、比较、移动等）所需的<strong>时间</strong>与算法中进行的简单操作<strong>次数乘积</strong>。
@@ -357,16 +357,16 @@
 <p>算法运行时间的例子：两个n×n矩阵相乘算法</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;=n; i++)                            <span class="comment">// n+1次，n次循环，1次判断</span></span><br><span class="line">   <span class="keyword">for</span> (j=<span class="number">1</span>; j&lt;=n; j++) &#123;                       <span class="comment">// n*(n+1)次，外层循环n次，内层n+1次</span></span><br><span class="line">      c[i][j] = <span class="number">0</span>;                              <span class="comment">// n*n次，2层循环</span></span><br><span class="line">      <span class="keyword">for</span> (k=<span class="number">0</span>; k&lt;n; k++)                       <span class="comment">// n*n*(n+1)次，外面2层循环，内层n+1次</span></span><br><span class="line">      c[i][j] = c[i][j] + a[i][k] * b[k][j];    <span class="comment">// n*n*n次，三层循环</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们把算法所耗费的时间定义为该算法中<strong>每条语句的频度之和</strong>，则该算法的时间消耗T(n)为：T(n) = 2×n3 + 3×n2 + 2×n + 1。</p>
-<h4 id="数量级">0.8.1.3 数量级</h4>
+<h3 id="数量级">8.1.3 数量级</h3>
 <p>为了便于不同算法的时间效率，我们仅比较它们的数量级。例如，<span class="math inline">\(T_1(n) = 10 \times n^2\)</span> 与 <span class="math inline">\(T_2(n)=5 \times n\)</span>这两个比较。若有某个辅助函数f(n)使得当n趋近于无穷大时，<span class="math inline">\(T(n)/f(n)\)</span>的极限值为不等于零的常数，则称<span class="math inline">\(f(n)\)</span>是<span class="math inline">\(T(n)\)</span>的同数量级函数。记作<span class="math inline">\(T(n)=O(f(n))\)</span>，称<span class="math inline">\(O(f(n))\)</span>为算法的渐进时间复杂度（O是数量级的符号），简称时间复杂度。</p>
 <p>例如，公式<span class="math inline">\(T(n) = 2 \times n^3 + 3 \times n^2 + 2 \times n + 1\)</span>中，当<span class="math inline">\(n\to \infty\)</span>时，<span class="math inline">\(T(n)/n^2 \rightarrow 2\)</span>，这表示<span class="math inline">\(n\)</span>充分大时，<span class="math inline">\(T(n)\)</span>与<span class="math inline">\(n^3\)</span>是同阶或同数量级，引入大“O”记号，则<span class="math inline">\(T(n)\)</span>可记作：<span class="math inline">\(T(n)=O(n^3)\)</span></p>
-<h3 id="算法时间复杂度定义">0.8.2 算法时间复杂度定义</h3>
+<h2 id="算法时间复杂度定义">8.2 算法时间复杂度定义</h2>
 <ul>
 <li>定义：算法中基本语句重复执行的次数是问题规模<span class="math inline">\(n\)</span>的某个函数<span class="math inline">\(f(n)\)</span>，算法的时间量度记作：<span class="math inline">\(T(n)=O(n)\)</span>。它表示随着n的增大，算法执行的时间的增长率和<span class="math inline">\(f(n)\)</span>的增长率相同，称为渐进时间复杂度。数据符号“O”定义为若<span class="math inline">\(T(n)\)</span>和<span class="math inline">\(f(n)\)</span>是定义在正整数集合上的两个函数，则<span class="math inline">\(T(n)=O(f(n))\)</span>表示存在正的常数<span class="math inline">\(C\)</span>和<span class="math inline">\(n_0\)</span>，使得当<span class="math inline">\(n≥n_0\)</span>时都满足<span class="math inline">\(0≤T(n)≤C*f(n)\)</span>。</li>
 <li>基本语句是指算法中重复执行次数和算法的执行时间成正比的语句；对算法运行时间的贡献最大的语句；执行次数最多语句。</li>
 <li>问题规模<span class="math inline">\(n\)</span>越大，算法的执行时间越长。对于排序来说，<span class="math inline">\(n\)</span>为记录数；对于矩阵来说，<span class="math inline">\(n\)</span>为矩阵的阶数；对于多项式来说，<span class="math inline">\(n\)</span>为多项式的项数；对于集合来说，<span class="math inline">\(n\)</span>为元素个数；对于树来说，<span class="math inline">\(n\)</span>为树的结点个数；对于图来说，<span class="math inline">\(n\)</span>为图的顶点数或边数。</li>
 </ul>
-<h3 id="算法时间复杂度基本步骤">0.8.3 算法时间复杂度基本步骤</h3>
+<h2 id="算法时间复杂度基本步骤">8.3 算法时间复杂度基本步骤</h2>
 <ul>
 <li>一般方法：
 <ul>
@@ -380,15 +380,15 @@
 <li>时间复杂度是由嵌套最深语句的频度决定的。</li>
 </ul></li>
 </ul>
-<h3 id="时间复杂度分析例题">0.8.4 时间复杂度分析例题</h3>
+<h2 id="时间复杂度分析例题">8.4 时间复杂度分析例题</h2>
 <p>计算下方语句的时间复杂度。</p>
-<h4 id="例子1计算nn矩阵相乘">0.8.4.1 例子1：计算N×N矩阵相乘</h4>
+<h3 id="例子1计算nn矩阵相乘">8.4.1 例子1：计算N×N矩阵相乘</h3>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    <span class="keyword">for</span>(j = <span class="number">1</span>; i &lt;= n; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        c[i][j] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (k = <span class="number">1</span>; k &lt;= n; k++)</span><br><span class="line">            c[i][j]=c[i][j] + a[i][j] * b[k][j];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>算法的基本操作语句为：c[i][j]=c[i][j] + a[i][j] * b[k][j];</p>
 <p><span class="math display">\[
 T(n) = \sum_{i=1}^n\sum_{j=1}^n\sum_{k=1}^n 1 = \sum_{i=1}^n\sum_{j=1}^n n = \sum_{i=1}^nn^2 = n^3 = O(n^3)
 \]</span></p>
-<h4 id="例子2">0.8.4.2 例子2</h4>
+<h3 id="例子2">8.4.2 例子2</h3>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">    <span class="keyword">for</span> (j=<span class="number">1</span>; j&lt;=i; j++)</span><br><span class="line">        <span class="keyword">for</span> (k=<span class="number">1</span>; j&lt;=j; j++)</span><br><span class="line">             x = x + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 <p><span class="math display">\[
 \begin{align}
@@ -400,7 +400,7 @@ T(n) = \sum_{i=1}^n\sum_{j=1}^n\sum_{k=1}^n 1 = \sum_{i=1}^n\sum_{j=1}^n n = \su
 &amp;= \frac{n(n+1)(n+2)}{6}
 \end{align}
 \]</span></p>
-<h4 id="例子3分析以下程序段的时间复杂度">0.8.4.3 例子3：分析以下程序段的时间复杂度</h4>
+<h3 id="例子3分析以下程序段的时间复杂度">8.4.3 例子3：分析以下程序段的时间复杂度</h3>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">1</span>;            <span class="comment">//语句1</span></span><br><span class="line"><span class="keyword">while</span>(i &lt;= n)</span><br><span class="line">    i = i * <span class="number">2</span>;    <span class="comment">// 语句1</span></span><br></pre></td></tr></table></figure>
 <p>关键时找除执行次数x与n的关系，并表示成n的函数；</p>
 <p>若循环体执行1此，则数值i = i <em>2 = 1 </em>2 = 2,</p>
@@ -409,7 +409,7 @@ T(n) = \sum_{i=1}^n\sum_{j=1}^n\sum_{k=1}^n 1 = \sum_{i=1}^n\sum_{j=1}^n n = \su
 <p>……</p>
 <p>若循环执行x次，则i=2x。</p>
 <p>设语句2执行次数为x次，由循环条件<span class="math inline">\(i≤n\)</span>，可得<span class="math inline">\(2^x ≤ n\)</span>，即<span class="math inline">\(x≤log2(n)\)</span></p>
-<h3 id="算法时间复杂度分类">0.8.5 算法时间复杂度分类</h3>
+<h2 id="算法时间复杂度分类">8.5 算法时间复杂度分类</h2>
 <p>有的情况下，算法中基本操作重复执行次数还随着问题的输入数据集不同而不同。</p>
 <ul>
 <li>最坏时间复杂度是指在最坏情况下，算法的时间复杂度；</li>
@@ -417,16 +417,16 @@ T(n) = \sum_{i=1}^n\sum_{j=1}^n\sum_{k=1}^n 1 = \sum_{i=1}^n\sum_{j=1}^n n = \su
 <li>最好时间复杂度是指在最好情况下，算法的时间复杂度。</li>
 </ul>
 <p>一般总是考虑在最坏情况下的时间复杂度，以保证算法的运行时间不会比它更长。</p>
-<h2 id="大o的运算规则">0.9 大O的运算规则</h2>
-<h3 id="加法法则">0.9.1 加法法则</h3>
+<h1 id="大o的运算规则">9 大O的运算规则</h1>
+<h2 id="加法法则">9.1 加法法则</h2>
 <p><span class="math display">\[
 T(n) = T_1(n) + T_2(n) = O(f(n)) + O(g(n)) = O(max(f(n), g(n)))
 \]</span></p>
-<h3 id="乘法规则">0.9.2 乘法规则</h3>
+<h2 id="乘法规则">9.2 乘法规则</h2>
 <p><span class="math display">\[
 T(n) = T_1(n) \times T_2(n) = O(f(n)) \times O(g(n)) = O(f(n) \times g(n))
 \]</span></p>
-<h2 id="时间复杂度tn按照数量级递增顺序">0.10 时间复杂度\(T(n)\)按照数量级递增顺序</h2>
+<h1 id="时间复杂度tn按照数量级递增顺序">10 时间复杂度\(T(n)\)按照数量级递增顺序</h1>
 <table>
 <thead>
 <tr class="header">
@@ -455,8 +455,13 @@ T(n) = T_1(n) \times T_2(n) = O(f(n)) \times O(g(n)) = O(f(n) \times g(n))
 </tr>
 </tbody>
 </table>
-<h2 id="渐进空间复杂度">0.11 渐进空间复杂度</h2>
+<h1 id="渐进空间复杂度">11 渐进空间复杂度</h1>
 <p>渐进空间复杂度是算法所需存储空间的度量，记作<span class="math inline">\(S(n)=O(f(n))\)</span>，其中n为问题的规模大小。算法要占用的空间包括：①算法本身占据的空间，输入/输出，指令，常数，变量等；②算法需要使用的辅助空间。</p>
+<style>
+</style>
+<h1 id="设计好算法的过程">12 设计好算法的过程</h1>
+<p>抽象数据类型是数据的逻辑结构加抽象的运算。</p>
+<p>数据的逻辑结构会有n个数据存储结构，即数据存储结构1一直到数据存储结构n；每个数据结构会有m中算法，因此会有数据存储结构1对应的算法11到算法1m，数据存储结构n对应的算法n1到算法nm，共计n*m个算法。最后通过算法分析，找到最好的算法。</p>
 
     </div>
 
