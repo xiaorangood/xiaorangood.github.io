@@ -117,3 +117,10 @@ search:
   field: post
   format: html
   limit: 10000
+
+heading_index:
+  enable: true
+  index_styles: "{1} {1} {1} {1} {1} {1}"
+  connector: "."
+  global_prefix: ""
+  global_suffix: " "

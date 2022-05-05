@@ -21,7 +21,7 @@ hexo new page links
 ```
 
 也可在博客根目录 /source 下手动创建 links 文件夹和里边的 index.md 文件。
-
+<!--more-->
 # 编辑links对应的文档
 
 在博客根目录 /source 下会生成一个 links 文件夹，打开其中的 index.md 文件，做如下编辑：
