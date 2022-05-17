@@ -16,7 +16,7 @@ date: 2022-03-20 15:26:46
 从[git官网](https://git-scm.com/downloads)下载windows下的软件，本文按照时的软件版本为 2.35.1。
 
 安装软件时，使用默认设置一直点击 Next 按钮，一直到下图的页面勾选两个选项；然后点击 Install 安装 git 软件。
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_16-10-29.png" style="zoom:90%;" />
+<img src="https://fastly.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_16-10-29.png" style="zoom:90%;" />
 
 勾选“Enable experimental support for pseudo consoles”选项是为了在 git bash 中启动 Hexo 服务后，可以通过 Ctrl + c 停止 Hexo 服务器的运行。
 
@@ -105,7 +105,7 @@ cat ~/.ssh/id_rsa.pub
 
 在获得密钥后，添加到github的个人设置页面中添加密钥：
 
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-38-44.png" style="zoom:75%;" />
+<img src="https://fastly.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-38-44.png" style="zoom:75%;" />
 
 添加密钥后，通过命令验证是否连接成功：
 
@@ -135,15 +135,15 @@ hexo clean && hexo g && hexo d
 
 上个章节中展示了使用 master 分支来保存生成的博客页面的方法，但原来的markdown文件并没有保存。为了保存 Markdown 文件，在仓库中创建`source`分支。
 
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-58-33.png" style="zoom:75%"/>
+<img src="https://fastly.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_17-58-33.png" style="zoom:75%"/>
 
 将source分支修改为默认分支：
 
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-06-26.png" style="zoom:75%"/>
+<img src="https://fastly.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-06-26.png" style="zoom:75%"/>
 
 检查仓库的默认分支：
 
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-07-14.png" style="zoom:75%"/>
+<img src="https://fastly.jsdelivr.net/gh/xiaorangood/myImage/images/Snipaste_2022-03-20_18-07-14.png" style="zoom:75%"/>
 
 ## 设置本地仓库
 

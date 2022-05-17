@@ -33,15 +33,15 @@ RAN：Radio Access Network，无线接入网络。
 
 该场景中，gNB支持所有的协议栈。这里的gNB可以是宏站，也可以是公共或者企业的室内热点。gNB可以连接到任意的传输，并假设gNB可以通过RAN接口连接到其他的gNB或者 eLTE eNB。
 
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/202205092230121.png"/>
+<img src="https://fastly.jsdelivr.net/gh/xiaorangood/myImage/images/202205092230121.png"/>
 
-<p style=align:center >sdfsd </p>
+
 
 # 与EUTRAN共址部署（Co-sited deployment with E-UTRA）
 
 在这种情况下，NR 功能与 E-UTRA 功能共址，可以作为同一基站的一部分，也可以作为同一站点的多个基站。共站部署可适用于所有NR部署场景，例如城市宏站。在这种情况下，希望通过负载均衡或者通过多种无线接入技术，使得频率资源被充分应用。
 
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/202205092234712.png"/>
+<img src="https://fastly.jsdelivr.net/gh/xiaorangood/myImage/images/202205092234712.png"/>
 
 # 集中部署（Centralized deployment）
 
@@ -51,7 +51,7 @@ NR 应支持上层 NR 无线协议栈的集中化。CU（Centralized Unit，集�
 
 与E-UTRA共址部署和非共址部署都可以支持几种部署。
 
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/202205092235469.png"/>
+<img src="https://fastly.jsdelivr.net/gh/xiaorangood/myImage/images/202205092235469.png"/>
 
 # 共享 RAN 部署（Shared RAN deployment）
 
@@ -61,4 +61,4 @@ NR 应支持共享 RAN 部署，以支持多个核心网运营商。共享 RAN �
 
 共享 RAN 既可以在共享频谱上，也可以在运行商的频谱上运行。
 
-<img src="https://cdn.jsdelivr.net/gh/xiaorangood/myImage/images/202205092236282.png"/>
+<img src="https://fastly.jsdelivr.net/gh/xiaorangood/myImage/images/202205092236282.png"/>
